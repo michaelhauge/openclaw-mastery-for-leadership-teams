@@ -308,6 +308,8 @@ We use **device flow** for the workshop because it works from any phone, no SSH,
 
 ### Step-by-step: connect Gmail (then Calendar, then Drive)
 
+> **Workshop transparency note:** the gog plugin's auth flow was not fully verified end-to-end during workshop prep (limited time). The conversation script below is the recommended approach because the bot can adapt to whatever clawhub + gog actually do today. If the bot's first suggestion involves SSH or local-browser flows, push back per the "if it suggests SSH" instructions below. If you get stuck, raise your hand for a captain — they have direct server access to debug.
+
 The bot can install the Google Workspace plugin (`gog`) and walk you through device-flow auth itself. Here's the conversation script:
 
 **1. From WhatsApp, message your bot:**

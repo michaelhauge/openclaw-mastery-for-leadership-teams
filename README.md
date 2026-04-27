@@ -22,12 +22,14 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 
 ## Repo contents
 
-| File | What it is |
-|---|---|
-| **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
-| `README.md` | This file |
+| File | Audience | What it is |
+|---|---|---|
+| **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
+| **[CAPTAIN.md](CAPTAIN.md)** | Table captains (Ray, CT, etc.) | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
+| **[OPERATOR.md](OPERATOR.md)** | Workshop operator (Michael) | Workshop-day runbook: pre-flight, bulk deploy, monitoring, recovery, tear-down |
+| `README.md` | Everyone | This file |
 
-More content (captain pre-brief, troubleshooting, video quickstart, take-home guide) will be added as the workshop programme expands.
+More content (printable name-tag template, video quickstart, take-home migration playbook) will be added as the workshop programme expands.
 
 ---
 
