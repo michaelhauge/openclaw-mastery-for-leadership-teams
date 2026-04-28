@@ -25,7 +25,8 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 | File / Folder | Audience | What it is |
 |---|---|---|
 | **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
-| **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Step-by-step guide for connecting Gmail, Calendar, and Drive via device-flow OAuth |
+| **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Step-by-step guide for connecting Gmail, Calendar, and Drive via device-flow OAuth (quick path) |
+| **[GOOGLE-OAUTH-SETUP-ADVANCED.md](GOOGLE-OAUTH-SETUP-ADVANCED.md)** | Participants | Advanced setup: own Google Cloud project + OAuth credentials + SSH tunnel (hard path, full ownership) |
 | **[SKILLS-GUIDE.md](SKILLS-GUIDE.md)** | Participants | Plugin and skills review — what to install, how to install it, example prompts for each |
 | **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 quick-win templates, AI implementation playbook |
 | **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
@@ -41,7 +42,8 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 - ["My bot isn't replying" troubleshooting](SETUP-GUIDE.md#part-7-troubleshooting)
 
 ### After the workshop
-- [Connecting Google Workspace (Gmail, Calendar, Drive)](GOOGLE-OAUTH-SETUP.md)
+- [Connecting Google Workspace — quick path (device-flow)](GOOGLE-OAUTH-SETUP.md)
+- [Connecting Google Workspace — advanced path (own Google Cloud project)](GOOGLE-OAUTH-SETUP-ADVANCED.md)
 - [Installing plugins and customising your bot](SKILLS-GUIDE.md)
 - [Taking it home — running your OWN OpenClaw](SETUP-GUIDE.md#part-8-taking-it-home)
 

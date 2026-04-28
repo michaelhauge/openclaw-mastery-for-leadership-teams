@@ -153,6 +153,7 @@ Your Google data stays entirely between your bot and your Google account. Here's
 
 ## What's next
 
+- **Want full ownership of your Google credentials?** → see [GOOGLE-OAUTH-SETUP-ADVANCED.md](GOOGLE-OAUTH-SETUP-ADVANCED.md) for the hard path: your own Google Cloud project, OAuth client, and SSH tunnel
 - **Install more plugins** → see [SKILLS-GUIDE.md](SKILLS-GUIDE.md) for a full review of the most useful ones
 - **Try AI-powered workflows** → see [resources/ai-gtm-playbook/](resources/ai-gtm-playbook/) for 25 copy-paste workflows you can use with your bot today
 - **Take the bot home** → see [SETUP-GUIDE.md Part 8](SETUP-GUIDE.md#part-8-taking-it-home) for migration options
