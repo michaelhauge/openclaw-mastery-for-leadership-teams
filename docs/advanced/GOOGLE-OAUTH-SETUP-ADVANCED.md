@@ -1,10 +1,12 @@
 # Connecting Google Workspace — Advanced Setup (Own Google Cloud Project)
 
+> ⚠️ **This guide is for technically confident users only.** It requires SSH access to your server, command-line tools, and navigating Google Cloud Console. If you're not comfortable with those, use the [standard device-flow guide](../../GOOGLE-OAUTH-SETUP.md) instead — it connects Gmail, Calendar, and Drive entirely through WhatsApp messages, no SSH needed.
+
 > **Adapted from** [Connect Google to OpenClaw](https://www.digitalocean.com/community/tutorials/connect-google-to-openclaw) by DigitalOcean, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). The original article includes screenshots for every step — refer to it for visual guidance at each stage.
 
 This guide covers the **hard path**: creating your own Google Cloud project and OAuth credentials so your bot uses a private API quota instead of any shared credentials. It takes about 30–45 minutes but gives you full ownership of the connection.
 
-**If you just want to quickly connect Gmail/Calendar/Drive** using the simpler device-flow method, see [GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md) instead.
+**If you just want to quickly connect Gmail/Calendar/Drive** using the simpler device-flow method, see [GOOGLE-OAUTH-SETUP.md](../../GOOGLE-OAUTH-SETUP.md) instead.
 
 ---
 
@@ -363,6 +365,6 @@ The stored tokens on your server will also become invalid. To reconnect, run the
 
 ## What's next
 
-- **Simpler connection method** → See [GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md) for the device-flow approach (no SSH tunnel needed)
-- **Install more plugins** → See [SKILLS-GUIDE.md](SKILLS-GUIDE.md) for a full review of useful plugins
-- **Try AI-powered workflows** → See [resources/ai-gtm-playbook/](resources/ai-gtm-playbook/) for 25 copy-paste workflows
+- **Simpler connection method** → See [GOOGLE-OAUTH-SETUP.md](../../GOOGLE-OAUTH-SETUP.md) for the device-flow approach (no SSH tunnel needed)
+- **Install more plugins** → See [SKILLS-GUIDE.md](../../SKILLS-GUIDE.md) for a full review of useful plugins
+- **Try AI-powered workflows** → See [resources/ai-gtm-playbook/](../../resources/ai-gtm-playbook/) for 25 copy-paste workflows
