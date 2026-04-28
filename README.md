@@ -46,6 +46,7 @@ Three types of people use this repo. Find yours:
 | **[WHY-SELF-HOSTED.md](WHY-SELF-HOSTED.md)** | Everyone | Why own your AI assistant vs. renting ChatGPT / Claude Pro — comparison and cost | ~6 min |
 | **[FAQ.md](FAQ.md)** | Everyone | Privacy, costs, team usage, and technical questions answered | ~5 min |
 | **[GLOSSARY.md](GLOSSARY.md)** | Participants | Plain-English definitions for every technical term in the workshop | Reference |
+| **[WINDOWS-VS-MAC.md](WINDOWS-VS-MAC.md)** | Participants | Terminal differences between Windows and Mac — and why it mostly doesn't matter | ~4 min |
 | **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 templates, AI playbook | Browse |
 | **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Triage lanes, troubleshooting flowchart, recovery commands | ~10 min |
 | `docs/operator/OPERATOR.md` | Workshop operator | Workshop-day runbook: pre-flight, bulk deploy, monitoring, tear-down | — |
