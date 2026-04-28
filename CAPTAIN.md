@@ -309,6 +309,54 @@ sudo systemctl status ttyd | head -5
 
 ---
 
+## Appendix: DigitalOcean overflow track
+
+Some participants were assigned to the **DigitalOcean overflow pool** (servers `wdo-01` through `wdo-10`) instead of the main Hetzner pool (`workshop-NN`). The participant experience is **identical** — same browser terminal, same `setup.sh`, same bot setup flow. The only differences are the hostnames and URLs below.
+
+### DO participant URLs
+
+| Purpose | URL |
+|---|---|
+| Claim page (fresh participant) | `https://claimopenclaw.pertamapartners.com/do/?t=<WORKSHOP_TOKEN>` |
+| Recovery (lost tab) | Same URL — signed cookie remembers their server |
+| Captain dashboard (read-only) | `https://claimopenclaw.pertamapartners.com/do/admin?role=captain&t=<CAPTAIN_TOKEN>` |
+| Operator dashboard (quarantine) | `https://claimopenclaw.pertamapartners.com/do/admin?role=operator&t=<OPERATOR_TOKEN>` |
+
+*Tokens are the same tokens the operator gave you for the morning of the workshop.*
+
+### SSH into a DO participant's server
+
+```bash
+ssh -i ~/.ssh/pertama-fleet pertama@wdo-NN
+# e.g. ssh -i ~/.ssh/pertama-fleet pertama@wdo-03
+```
+
+Everything you'd do on a Hetzner server works the same way. The Docker commands, ttyd restart, config patches — all identical.
+
+### DO-specific ttyd restart
+
+```bash
+ssh -i ~/.ssh/pertama-fleet pertama@wdo-NN
+sudo systemctl restart ttyd
+sudo systemctl status ttyd | head -5
+```
+
+### Quarantine and spare swap
+
+Same flow as Hetzner. Operator marks the server quarantined in the DO operator dashboard. Participant's next page load at `/do/` automatically swaps them to a fresh DO server. The DO pool has 10 servers total; there are no dedicated spare DO servers — spare capacity comes from unclaimed servers.
+
+### Key differences to remember
+
+| | Hetzner | DigitalOcean |
+|---|---|---|
+| Hostname format | `workshop-NN` | `wdo-NN` |
+| Claim URL | `/` | `/do/` |
+| Admin URL | `/admin?role=captain&t=...` | `/do/admin?role=captain&t=...` |
+| Pool size | 46 servers | 10 servers |
+| Setup experience | Identical | Identical |
+
+---
+
 ## Captain mindset
 
 A few things to remember:
