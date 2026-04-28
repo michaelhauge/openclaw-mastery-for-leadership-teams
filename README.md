@@ -107,7 +107,7 @@ Four additional packs to help you get more out of your bot — and AI tools in g
 
 ## About this workshop
 
-This workshop is designed and facilitated by [Ray Chou](https://raymondchou.me/), [Michael Hauge](https://www.pertamapartners.com/about/team), and [CT Ong](https://my.linkedin.com/in/ong-chong-te). If you'd like to bring AI workshops to your company, contact any one of the facilitators and they can provide you with more information.
+This workshop is designed and facilitated by [Ray Chou](https://raymondchou.me/), [Michael Hauge](https://www.pertamapartners.com/about/team), and [CT Ong](https://my.linkedin.com/in/ong-chong-te). If you'd like to bring their AI expertise, training, consulting, or engineering to your company, contact any one of the facilitators and they can provide you with more information.
 
 ---
 
