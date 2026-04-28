@@ -195,6 +195,38 @@ rm -f /opt/pertama/.onboard-complete
 # Now have them re-run /opt/pertama/setup.sh
 ```
 
+### 🟡 10. "I picked Telegram (or Signal) in the wizard, now setup.sh is asking me to scan a WhatsApp QR"
+
+This is a known installer quirk for the workshop default — `setup.sh` hardcodes a WhatsApp pair step after the wizard. If a participant picked a non-WhatsApp channel, **don't let them hit Enter on the WhatsApp prompt.** The recovery is 4 commands:
+
+→ Have them **press Ctrl+C** to abort the WhatsApp pair prompt. They'll be back at the shell.
+
+→ Verify their bot token is valid (Telegram example — replace with the token they pasted in the wizard):
+```bash
+curl -sS "https://api.telegram.org/botYOUR_TOKEN/getMe"
+# Should return {"ok":true, "result":{"username":"YourBot",...}}
+# If 401: token was mistyped; have them go to @BotFather, /mybots, copy the real token
+```
+
+→ Patch `dmPolicy` to `open` + `allowFrom` to `["*"]` so the bot accepts any sender's DMs (one-line jq deep-merge — preserves `meta` so OpenClaw doesn't auto-restore it):
+```bash
+docker run --rm -v pertama_openclaw-config:/data alpine sh -c 'apk add -q jq && jq ". * {channels:{telegram:{dmPolicy:\"open\", allowFrom:[\"*\"]}}}" /data/openclaw.json > /data/openclaw.json.new && mv /data/openclaw.json.new /data/openclaw.json && chown 1000:1000 /data/openclaw.json'
+```
+(Replace `telegram` with `signal` etc. for other channels.)
+
+→ Force-restart openclaw to clear the auto-restart backoff that built up from the bad WhatsApp attempts:
+```bash
+cd /opt/pertama && docker compose down openclaw && docker compose up -d openclaw
+# Wait ~20 seconds, then check logs:
+docker logs openclaw --since 30s | grep -iE "telegram|error"
+```
+
+→ Have them DM their bot from Telegram. Bot replies within ~5–10s on first message (LLM cold start).
+
+**Why this happens:** `setup.sh` was built for the workshop default (WhatsApp). The configure wizard supports any channel, but the post-configure pair step is wired only for WhatsApp. Fixing the installer requires re-deploying all 45 servers, which we deliberately did not do the night before workshop. Documented for fix after workshop.
+
+**For Signal:** OpenClaw 2026.4.24's Signal channel requires phone-number registration via signal-cli. Significantly more setup; if a participant insists, tell them Signal isn't supported in the workshop and offer Telegram or WhatsApp.
+
 ---
 
 ## Escalation protocol
