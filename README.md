@@ -27,6 +27,7 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 | **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
 | **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Connecting Gmail, Calendar, and Drive — no SSH needed, done entirely through WhatsApp messages |
 | **[WORKFLOWS.md](WORKFLOWS.md)** | Participants | 12 copy-paste workflows: daily briefing, meeting prep, proposal tracker, LinkedIn posts, and more |
+| **[GLOSSARY.md](GLOSSARY.md)** | Participants | Plain-English definitions for every technical term used in the workshop (VPS, cron job, plugin, OAuth, etc.) |
 | **[SKILLS-GUIDE.md](SKILLS-GUIDE.md)** | Participants | Plugin and skills review — what to install, how to install it, example prompts for each |
 | **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 quick-win templates, AI implementation playbook |
 | **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
