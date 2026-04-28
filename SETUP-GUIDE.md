@@ -203,7 +203,7 @@ Hours before the workshop, your server was provisioned. A "cloud-init" script (a
 - **Tailscale** — a private mesh network so your captain can SSH into your server safely
 - **ttyd** — the browser terminal you're using right now
 - **Caddy** (running on a separate dispenser server) — routes the public-internet URL to your tailnet-only ttyd
-- **OpenClaw + Pertama Daemon Docker images** — pulled but not started (waiting for setup.sh to configure them first)
+- **OpenClaw Docker images** — pulled but not started (waiting for setup.sh to configure them first)
 
 Your server's filesystem layout:
 
@@ -214,7 +214,7 @@ Your server's filesystem layout:
 | `/opt/pertama/help.sh` | Quick reference — runnable anytime to remind you of commands |
 | `/opt/pertama/.onboard-complete` | Sentinel file — its presence tells `setup.sh` you've already onboarded |
 | `/opt/pertama-skills/` | Curated skills (auto-syncs every 5 min from a private repo) |
-| `/var/lib/pertama/` | Pertama Daemon state (logs, runtime data) |
+| `/var/lib/pertama/` | Daemon state (logs, runtime data) |
 | Docker volume `pertama_openclaw-config` | Your OpenClaw config + auth tokens (stays on the server) |
 
 ### What `setup.sh` actually did

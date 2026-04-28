@@ -1,6 +1,6 @@
 # Captain Pre-Brief — OpenClaw Mastery Workshop
 
-If you're reading this, you're a **table captain**. Your job: keep your ~10 participants moving, escalate only the things that are actually broken to Michael, and remember that the workshop is about THEM, not you. You've got this.
+If you're reading this, you're a **table captain**. Your job: keep your ~10 participants moving, escalate only the things that are actually broken to the operator, and remember that the workshop is about THEM, not you. You've got this.
 
 > **Read this BEFORE workshop morning** (15 min). Skim it again on the morning of (5 min). Keep this tab open during the workshop.
 
@@ -13,15 +13,15 @@ If you're reading this, you're a **table captain**. Your job: keep your ~10 part
 | Captain name | _______________________ |
 | Your servers (10 of 40) | `workshop-____` through `workshop-____` |
 | Your captain dashboard URL | `<YOUR-WORKSHOP-DASHBOARD-URL>/admin?role=captain&t=<TOKEN>` |
-| Michael's WhatsApp | `+_______________` |
+| Operator's WhatsApp | `+_______________` |
 
 ---
 
 ## Your tools
 
-- **Captain dashboard** — read-only grid showing the status of every server in your range. Click any tile to land in that participant's terminal directly. URL is in the table above; Michael will fill in the token on workshop morning.
-- **Tailscale on your laptop** — Michael invited you to the workshop tailnet earlier this week. Verify you can `ssh pertama@workshop-01` (or any workshop server) from your laptop BEFORE workshop morning. If not, tell Michael TONIGHT.
-- **Shared SSH key** — `~/.ssh/pertama-fleet`. Michael preloaded this on your laptop.
+- **Captain dashboard** — read-only grid showing the status of every server in your range. Click any tile to land in that participant's terminal directly. URL is in the table above; the operator will fill in the token on workshop morning.
+- **Tailscale on your laptop** — The operator added you to the workshop tailnet earlier this week. Verify you can `ssh pertama@workshop-01` (or any workshop server) from your laptop BEFORE workshop morning. If not, let the operator know TONIGHT.
+- **Shared SSH key** — `~/.ssh/pertama-fleet`. Preloaded on your laptop by the operator.
 - **SSH any participant's server**: `ssh -i ~/.ssh/pertama-fleet pertama@workshop-NN`
 - **The workshop repo** (this doc lives here): https://github.com/michaelhauge/openclaw-mastery-for-leadership-teams — bookmark it.
 
@@ -35,7 +35,7 @@ When a participant says "it's not working," figure out which lane this is **befo
 |---|---|---|
 | 🟢 **GREEN** | Following the SETUP-GUIDE, on track. | Don't interrupt — let them work. |
 | 🟡 **YELLOW** | Stuck on something on the flowchart below. | **You handle it.** |
-| 🔴 **RED** | Server unreachable, or anything not on the flowchart. | **Escalate to Michael.** |
+| 🔴 **RED** | Server unreachable, or anything not on the flowchart. | **Escalate to the operator.** |
 
 > Most "it's not working" reports are actually GREEN — the participant just needs reassurance to keep going.
 
@@ -199,7 +199,7 @@ rm -f /opt/pertama/.onboard-complete
 
 ## Escalation protocol
 
-Anything **not** in this flowchart, or any **2-strike failure** on a step above, goes to Michael via WhatsApp.
+Anything **not** in this flowchart, or any **2-strike failure** on a step above, goes to the operator via WhatsApp.
 
 Format:
 
@@ -211,7 +211,7 @@ Don't escalate without trying the relevant flowchart step first — most issues 
 
 ## Spare pool
 
-If a participant's server is genuinely broken (not their fault, not fixable in <5 min), ask Michael to mark it `quarantined` in the operator dashboard. Their next page refresh will atomically swap them onto a fresh spare server. You don't have to coordinate the swap manually — the dispenser handles it.
+If a participant's server is genuinely broken (not their fault, not fixable in <5 min), ask the operator to mark it `quarantined` in the operator dashboard. Their next page refresh will atomically swap them onto a fresh spare server. You don't have to coordinate the swap manually — the dispenser handles it.
 
 ---
 
@@ -221,7 +221,7 @@ When the workshop wraps:
 
 1. Remind your participants: **the server stays up for 7 days post-workshop**. They can keep using it. After 7 days it gets destroyed.
 2. Direct them to [SETUP-GUIDE.md Part 8 (Taking it home)](SETUP-GUIDE.md#part-8-taking-it-home) for migration options.
-3. Anyone who wants to keep their server long-term: capture their email, Michael will help arrange a Hetzner transfer.
+3. Anyone who wants to keep their server long-term: capture their email, the operator will help arrange a transfer.
 
 ---
 
@@ -287,6 +287,4 @@ A few things to remember:
 - **Sit with frustration when needed.** Some participants will be irritated that their bot isn't working in 3 minutes. Acknowledge it ("yeah, this is the slow part, it'll click in another 90 seconds"), don't take it personally.
 - **The workshop server is throwaway.** If something is genuinely broken and not fixable in 5 min, swap them to a spare. We have 5 spares for exactly this reason. Don't burn 30 min on one participant.
 
-Last thing: **thank you for captaining**. This workshop doesn't happen without you. Michael will buy you dinner.
-
-— Michael
+Last thing: **thank you for captaining**. This workshop doesn't happen without you.
