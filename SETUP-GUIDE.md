@@ -119,11 +119,11 @@ Five steps. ~10 minutes. You'll need:
 - **Your phone**, with WhatsApp installed and signed in
 - **An LLM API key** (we'll show you how to get a free Moonshot key in step 2, or bring your own)
 - **A laptop or tablet** with a modern browser (Chrome, Safari, Firefox, Edge — anything from the last few years)
-- **The dispenser URL** your captain shared (looks like `https://<YOUR-WORKSHOP-CLAIM-URL>/?t=...`)
+- **The dispenser URL**: [https://claimopenclaw.pertamapartners.com](https://claimopenclaw.pertamapartners.com)
 
 ### Step 1 — Claim your server (~30 seconds)
 
-1. Open the dispenser URL in your browser
+1. Open **[https://claimopenclaw.pertamapartners.com](https://claimopenclaw.pertamapartners.com)** in your browser
 2. Click **"Claim my OpenClaw"** — this assigns one of the pre-provisioned workshop servers to you
 3. Save the bundle that appears: a server name, ttyd password, and a "browser terminal" link. Bookmark this page — it's your only way back to the server if you lose track.
 
