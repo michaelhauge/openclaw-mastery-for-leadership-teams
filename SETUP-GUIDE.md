@@ -278,79 +278,11 @@ The current approach — let OpenClaw's own `configure` wizard write the schema,
 
 ## Part 5: Connecting Google Workspace
 
-Here's where OpenClaw goes from "neat chat bot" to "actually useful for my work."
+Connect your Gmail, Google Calendar, and Drive so your bot can read emails, check your schedule, and search your files — all from WhatsApp.
 
-### What you can do once Google is connected
+➡️ **Full step-by-step guide:** [GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)
 
-- *"What's on my calendar tomorrow? Draft a prep doc for the 10am meeting based on the most recent emails from those attendees."*
-- *"Find the last 5 emails from [client], summarise the deal status, and draft a follow-up."*
-- *"Read the doc at [Drive URL] and pull out the action items, then add them to my calendar as 30-minute blocks for tomorrow."*
-- *"Every Monday at 8am, summarise unread emails from the past weekend and send me a WhatsApp digest."*
-
-### The OAuth challenge (in plain English)
-
-Google integrations need OAuth — the standard "sign in with Google" flow. On a normal computer that flow goes:
-
-1. App opens a browser tab pointing at Google
-2. You sign in
-3. Google redirects back to a local URL (typically `localhost:8080`) with a token
-4. App captures the token and stores it
-
-On a **headless VPS** (no browser, no `localhost` you can reach), step 3 doesn't work directly. Three real solutions:
-
-| Approach | Difficulty | Recommended for |
-|---|---|---|
-| **Device flow** — server prints a URL + code; you visit URL on any device, enter code, sign in | Easiest | Workshop participants |
-| **SSH tunnel** — you forward `localhost:8080` from server to your laptop, then run the OAuth flow on your laptop browser | Medium | Power users, post-workshop |
-| **Public OAuth callback proxy** — set up a public HTTPS endpoint that catches the callback and forwards to your server | Hardest | Production multi-user setups |
-
-We use **device flow** for the workshop because it works from any phone, no SSH, no laptop OAuth setup.
-
-### Step-by-step: connect Gmail (then Calendar, then Drive)
-
-> **Workshop transparency note:** the gog plugin's auth flow was not fully verified end-to-end during workshop prep (limited time). The conversation script below is the recommended approach because the bot can adapt to whatever clawhub + gog actually do today. If the bot's first suggestion involves SSH or local-browser flows, push back per the "if it suggests SSH" instructions below. If you get stuck, raise your hand for a captain — they have direct server access to debug.
-
-The bot can install the Google Workspace plugin (`gog`) and walk you through device-flow auth itself. Here's the conversation script:
-
-**1. From WhatsApp, message your bot:**
-
-> *"I want to connect my Gmail. I'm on a workshop VPS — please use device-flow OAuth (no SSH, no local browser). Walk me through it step by step."*
-
-**2. The bot should:**
-- Install the `gog` plugin via clawhub: `npx clawhub install jx76-gog`
-- Run the gog auth command for Gmail
-- Print a URL and a short code (something like `https://www.google.com/device` and `XXXX-YYYY`)
-- Tell you to visit that URL and enter the code
-
-**3. On your phone or laptop:**
-- Open the URL in any browser
-- Enter the code
-- Sign in to Google with the account whose Gmail you want connected
-- Grant the requested permissions (read email, etc.)
-- Click "Allow"
-
-**4. Back to WhatsApp:**
-- The bot detects the auth completed
-- Confirms: *"✓ Gmail connected"*
-- Try it: *"Summarise my last 5 emails."*
-
-**5. Repeat for Calendar and Drive:**
-
-> *"Now connect my Google Calendar — same device-flow approach."*
->
-> *"And Google Drive."*
-
-Same pattern, different OAuth scope each time.
-
-### What if the bot suggests SSH or a local browser flow?
-
-Tell it: *"No SSH. No local browser. Use device-flow auth. The URL must work on any device."* The bot has access to multiple OAuth strategies and will switch.
-
-### What if it gets stuck?
-
-- **Stuck for >5 minutes:** raise your hand for a captain
-- **Auth completes but bot says "no Gmail tools":** tell the bot *"reload your config and verify the gog plugin is enabled"*
-- **Want to start over:** message *"forget my Google connection, let's start fresh"* — bot will clear tokens and restart
+The guide covers: installing the `gog` plugin, device-flow OAuth (no SSH needed — works from your phone), connecting Calendar and Drive, verification prompts, and troubleshooting.
 
 > 🛟 Captain access: captains have SSH-via-Tailscale access to your server and can run any command directly. They're your "support engineer" for the workshop. After the workshop they don't have access anymore (their Tailscale entry is removed).
 
@@ -358,56 +290,11 @@ Tell it: *"No SSH. No local browser. Use device-flow auth. The URL must work on 
 
 ## Part 6: Extending your bot — plugins, skills, persona
 
-### Installing OpenClaw plugins (ClawHub)
+Install plugins from ClawHub to connect Gmail, Calendar, Drive, Notion, and more. Add skills to shape how the bot responds to you.
 
-OpenClaw's plugin marketplace is called **ClawHub**. Anyone can publish a plugin; thousands exist. Browse them at [clawhub.openclaw.ai](https://clawhub.openclaw.ai).
+➡️ **Full guide with example prompts:** [SKILLS-GUIDE.md](SKILLS-GUIDE.md)
 
-In your browser terminal:
-
-```bash
-cd /opt/pertama
-
-# Search:
-docker compose exec openclaw npx clawhub search <topic>
-# Example: docker compose exec openclaw npx clawhub search calendar
-
-# Inspect (without installing):
-docker compose exec openclaw npx clawhub inspect <slug>
-
-# Install:
-docker compose exec openclaw npx clawhub install <slug>
-
-# List installed:
-docker compose exec openclaw npx clawhub list
-```
-
-After installing a plugin, restart OpenClaw so it picks up the new capabilities:
-
-```bash
-docker compose restart openclaw
-```
-
-### Useful plugins to try
-
-| Plugin | What it does |
-|---|---|
-| `jx76-gog` | Google Workspace (Gmail, Calendar, Drive, Sheets, Docs, Contacts) |
-| `firecrawl-search` | Web search + URL scraping (better than naive web search) |
-| `notion` | Read/write your Notion workspace |
-| `linear` | Read/write Linear issues |
-| `web-search-plus` | Multi-source web search with summarisation |
-
-### Customising the bot's persona (advanced)
-
-OpenClaw doesn't have a single "system prompt" knob — its persona comes from a combination of:
-- The skill files in `/opt/pertama-skills/` (auto-synced from a private repo, so you can fork and customise once you take this home)
-- Per-channel instructions (you can give the bot different personas per WhatsApp peer)
-
-For per-conversation instructions, the bot itself has an `agents.defaults` section it can edit. Try:
-
-> *"From now on, when responding to me, be more concise — bullet points only, max 3 bullets, no preamble."*
-
-The bot will write that into its config and persist it across restarts.
+The guide covers: gog (Google Workspace), firecrawl-search, web-search-plus, notion, memory-lancedb, linear, x-tweet-fetcher, and how to create custom skills in conversation.
 
 ---
 

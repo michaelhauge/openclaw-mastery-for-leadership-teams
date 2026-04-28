@@ -22,14 +22,15 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 
 ## Repo contents
 
-| File | Audience | What it is |
+| File / Folder | Audience | What it is |
 |---|---|---|
 | **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
-| **[CAPTAIN.md](CAPTAIN.md)** | Table captains (Ray, CT, etc.) | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
-| **[OPERATOR.md](OPERATOR.md)** | Workshop operator (Michael) | Workshop-day runbook: pre-flight, bulk deploy, monitoring, recovery, tear-down |
+| **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Step-by-step guide for connecting Gmail, Calendar, and Drive via device-flow OAuth |
+| **[SKILLS-GUIDE.md](SKILLS-GUIDE.md)** | Participants | Plugin and skills review — what to install, how to install it, example prompts for each |
+| **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 quick-win templates, AI implementation playbook |
+| **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
+| `docs/operator/OPERATOR.md` | Workshop operator | Workshop-day runbook: pre-flight, bulk deploy, monitoring, recovery, tear-down |
 | `README.md` | Everyone | This file |
-
-More content (printable name-tag template, video quickstart, take-home migration playbook) will be added as the workshop programme expands.
 
 ---
 
@@ -40,28 +41,37 @@ More content (printable name-tag template, video quickstart, take-home migration
 - ["My bot isn't replying" troubleshooting](SETUP-GUIDE.md#part-7-troubleshooting)
 
 ### After the workshop
-- [Connecting Google Workspace (Gmail, Calendar, Drive)](SETUP-GUIDE.md#part-5-connecting-google-workspace)
-- [Installing plugins from ClawHub](SETUP-GUIDE.md#installing-openclaw-plugins-clawhub)
+- [Connecting Google Workspace (Gmail, Calendar, Drive)](GOOGLE-OAUTH-SETUP.md)
+- [Installing plugins and customising your bot](SKILLS-GUIDE.md)
 - [Taking it home — running your OWN OpenClaw](SETUP-GUIDE.md#part-8-taking-it-home)
 
-### Theory and deep-dives
-For comprehensive theory on OpenClaw, VPS choice, security, pricing, and use cases, see Michael's broader **[OpenClaw SEA Guide](https://github.com/michaelhauge/myeo-ai-resources/tree/main/openclaw-sea-guide)** — particularly:
-
-- [Mental Model](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/MENTAL-MODEL.md) — understand the tech through business metaphors
-- [Keys & Connectors](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/KEYS-AND-CONNECTORS.md) — SSH, API keys, OAuth tokens explained
-- [How AI Thinks](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/HOW-AI-THINKS.md) — what an LLM actually does
-- [Prompting Guide](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/PROMPTING-GUIDE.md) — get more out of your bot
-- [Pricing](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/PRICING.md) — what does this actually cost monthly?
-- [Use Cases](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/USE-CASES.md) — real examples from SEA business leaders
+### Theory and deep-dives (also available locally in `resources/openclaw-sea-guide/`)
+- [Mental Model](resources/openclaw-sea-guide/MENTAL-MODEL.md) — understand the tech through business metaphors
+- [Keys & Connectors](resources/openclaw-sea-guide/KEYS-AND-CONNECTORS.md) — SSH, API keys, OAuth tokens explained
+- [How AI Thinks](resources/openclaw-sea-guide/HOW-AI-THINKS.md) — what an LLM actually does
+- [Prompting Guide](resources/openclaw-sea-guide/PROMPTING-GUIDE.md) — get more out of your bot
+- [Pricing](resources/openclaw-sea-guide/PRICING.md) — what does this actually cost monthly?
+- [Use Cases](resources/openclaw-sea-guide/USE-CASES.md) — real examples from SEA business leaders
 
 ### Setting up your own (alternatives to the workshop's Hetzner setup)
-The SEA guide covers many alternatives to the Hetzner cpx22 setup we use in the workshop:
+- [Local Mac](resources/openclaw-sea-guide/guides/03-local-mac.md) — run on your laptop, $0 hosting
+- [Oracle Cloud Free](resources/openclaw-sea-guide/guides/04-oracle-cloud-free.md) — free VPS forever, advanced setup
+- [DigitalOcean](resources/openclaw-sea-guide/guides/05-digitalocean.md) — easiest paid VPS
+- [Contabo VPS](resources/openclaw-sea-guide/guides/06-contabo-vps.md) — best value
+- [Managed hosting](resources/openclaw-sea-guide/guides/09-managed-hosting-providers.md) — no installation needed
 
-- [Local Mac](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/03-local-mac.md) — run on your laptop, $0 hosting
-- [Oracle Cloud Free](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/04-oracle-cloud-free.md) — free VPS forever, advanced setup
-- [DigitalOcean 1-Click](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/05-digitalocean.md) — easiest paid VPS
-- [Contabo VPS](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/06-contabo-vps.md) — best value
-- [Managed hosting (xCloud, OpenClawd.ai)](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/09-managed-hosting-providers.md) — no installation needed
+---
+
+## Resources
+
+Four additional packs to help you get more out of your bot — and AI tools in general. All in the [`resources/`](resources/) folder.
+
+| Pack | What's inside |
+|---|---|
+| **[OpenClaw SEA Guide](resources/openclaw-sea-guide/)** | Comprehensive reference: mental models, prompting, security, pricing, VPS options |
+| **[AI GTM Playbook](resources/ai-gtm-playbook/)** | 25 copy-paste AI prompt workflows — SEO, cold email, proposals, competitor intel, and more |
+| **[Quick-Win Templates](resources/quick-win-templates/)** | 40 templates: one-pagers, comparison guides, 30-day checklists, spreadsheet calculators |
+| **[AI Implementation Playbook](resources/ai-implementation-playbook/)** | 10 AI use cases with ROI tracking + 50+ business prompts in `PROMPT-LIBRARY.md` |
 
 ---
 
