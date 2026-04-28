@@ -170,5 +170,6 @@ It will use this context in every workflow.
 ## What's next
 
 - **Install the Google Workspace plugin** to unlock the 📧 workflows → [GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)
+- **Install these workflows as persistent skills** (so they run automatically without re-pasting each time) → [resources/sample-skills/](resources/sample-skills/)
 - **Explore more plugins** (web search, Notion, memory) → [SKILLS-GUIDE.md](SKILLS-GUIDE.md)
 - **25 more workflows across the full business funnel** → [resources/ai-gtm-playbook/](resources/ai-gtm-playbook/)
