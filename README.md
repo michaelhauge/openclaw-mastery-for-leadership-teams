@@ -2,7 +2,7 @@
 
 A hands-on workshop that gives every participant a personal AI assistant — running on their own server, talking to them on WhatsApp — by the end of the day.
 
-*Workshop hosted by [Michael Hauge](https://linkedin.com/in/michaelhauge) · 29 April 2026 · Kuala Lumpur*
+*Workshop hosted by Ray Chou, [Michael Hauge](https://github.com/michaelhauge), and CT Ong · 29 April 2026 · Kuala Lumpur*
 
 > **Live at the workshop?** Open the dispenser URL your captain shared, click **Claim my OpenClaw**, and follow the on-screen prompts. The first 15 minutes are guided — this repo is for everything that comes after.
 
@@ -107,7 +107,7 @@ Four additional packs to help you get more out of your bot — and AI tools in g
 
 ## About this workshop
 
-This workshop is designed and facilitated by [Michael Hauge](https://linkedin.com/in/michaelhauge), an AI implementation specialist based in Kuala Lumpur who helps leadership teams adopt AI tools that they own and control. If you'd like to bring this workshop to your organisation, or discuss an AI advisory engagement, reach out via [LinkedIn](https://linkedin.com/in/michaelhauge).
+This workshop is designed and facilitated by [Michael Hauge](https://www.pertamapartners.com/about/team), an AI implementation specialist based in Kuala Lumpur who helps leadership teams adopt AI tools that they own and control. If you'd like to bring this workshop to your organisation, or discuss an AI advisory engagement, reach out via [LinkedIn](https://linkedin.com/in/michaelhauge).
 
 ---
 
