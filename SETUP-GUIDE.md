@@ -383,7 +383,82 @@ If even that fails, your captain can recover you via the operator dashboard.
 
 ## Part 8: Taking it home
 
-The workshop server stays running for **7 days post-workshop**, after which it's destroyed. You have three options for keeping your OpenClaw alive long-term:
+The workshop server stays running for **7 days post-workshop**, after which it's destroyed. You have three options for keeping your OpenClaw alive long-term — but **first**, give yourself direct SSH access from your own laptop. You'll need this for backups, the Hetzner transfer path, and ongoing remote admin.
+
+### Step 0 — Add your SSH key for direct access (do this first, ~5 min)
+
+Today the workshop captains hold the SSH key to your server. To take ownership, generate your own keypair on your laptop and paste the public half into your server's `authorized_keys`. After this, you can SSH from your own terminal anywhere — no captain involvement required.
+
+**On your laptop**, generate a personal key (one-time, you'll reuse this for everything OpenClaw):
+
+```bash
+# macOS / Linux (Terminal app):
+ssh-keygen -t ed25519 -f ~/.ssh/my-openclaw -C "my-openclaw"
+# When prompted for "passphrase": press Enter twice to skip (or set one if you want extra security)
+
+cat ~/.ssh/my-openclaw.pub
+# This prints ONE LINE that starts with "ssh-ed25519 AAAA..." — select all of it and copy.
+```
+
+```powershell
+# Windows (PowerShell — Windows 10+ has ssh-keygen built in):
+ssh-keygen -t ed25519 -f $env:USERPROFILE\.ssh\my-openclaw -C "my-openclaw"
+# Press Enter twice at the passphrase prompt.
+
+type $env:USERPROFILE\.ssh\my-openclaw.pub
+# Copy the entire ssh-ed25519 line that prints.
+```
+
+**In your browser terminal** (the one you've been using all workshop), append your public key to `authorized_keys`:
+
+```bash
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+
+# Replace the example below with the line you just copied:
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIExampleExampleExampleExampleExample my-openclaw" >> ~/.ssh/authorized_keys
+
+chmod 600 ~/.ssh/authorized_keys
+cat ~/.ssh/authorized_keys
+# You should see TWO lines now: the workshop's pertama-fleet key (still there for captain support) and your new my-openclaw key.
+```
+
+**Find your server's public IP address.** It's printed on your claim bundle page (the page you saw right after clicking "Claim my OpenClaw"). It looks like `5.223.87.125`. If you lost the bundle page, run this in your browser terminal to print it:
+
+```bash
+curl -s https://ifconfig.me; echo
+```
+
+**Test the connection from your laptop** (replace `5.223.87.125` with your actual IP):
+
+```bash
+# macOS / Linux:
+ssh -i ~/.ssh/my-openclaw pertama@5.223.87.125
+# First connection: it'll ask "Are you sure you want to continue connecting? (yes/no)" — type yes.
+# You should land at the same shell prompt you see in the browser terminal: `pertama@workshop-NN:~$`
+```
+
+```powershell
+# Windows PowerShell:
+ssh -i $env:USERPROFILE\.ssh\my-openclaw pertama@5.223.87.125
+```
+
+**Make it shorter** (optional, but worth it). Add this to `~/.ssh/config` on your laptop so you can type just `ssh openclaw`:
+
+```
+# macOS / Linux: ~/.ssh/config
+# Windows:       %USERPROFILE%\.ssh\config
+
+Host openclaw
+    HostName 5.223.87.125
+    User pertama
+    IdentityFile ~/.ssh/my-openclaw
+```
+
+After saving that file, just `ssh openclaw` works from anywhere.
+
+**Done!** You now have your own way in. Captains still have access via the original `pertama-fleet` key (useful if you need post-workshop support). If you want to fully lock everyone else out later — open `~/.ssh/authorized_keys` in your browser terminal and delete the line containing `pertama-fleet`. **Don't do this until you're 100% sure you can SSH in with your own key**, otherwise you'll lock yourself out and have to ask a captain to recover via the dispenser.
+
+---
 
 ### Option A — Spin up your own VPS (~30 minutes)
 
@@ -421,15 +496,22 @@ This is the lowest-friction path if you want to keep the bot running with zero r
 
 ### Backing up before the 7-day window expires
 
-Whichever path you pick, take a backup of your `/opt/pertama` and the OpenClaw config volume:
+Whichever path you pick, take a backup of your OpenClaw config volume. (This assumes you completed Step 0 above — direct SSH access from your laptop.)
 
 ```bash
-# In your browser terminal:
+# In your browser terminal — create the backup:
 cd /opt/pertama
 docker compose exec openclaw node openclaw.mjs backup create --output /tmp/openclaw-backup.tar.gz
-# Then on YOUR laptop:
-scp pertama@<your-tailscale-name>:/tmp/openclaw-backup.tar.gz ~/Desktop/
-# (You'll need Tailscale on your laptop and an invite from your captain)
+
+# Then from YOUR laptop (replace 5.223.87.125 with your server's IP):
+scp -i ~/.ssh/my-openclaw pertama@5.223.87.125:/tmp/openclaw-backup.tar.gz ~/Desktop/
+# Or if you set up the ~/.ssh/config alias from Step 0:
+scp openclaw:/tmp/openclaw-backup.tar.gz ~/Desktop/
+```
+
+```powershell
+# Windows PowerShell:
+scp -i $env:USERPROFILE\.ssh\my-openclaw pertama@5.223.87.125:/tmp/openclaw-backup.tar.gz $env:USERPROFILE\Desktop\
 ```
 
 This backup contains your openclaw.json, auth tokens, paired channel sessions, and any custom config — restorable on any other OpenClaw install.
