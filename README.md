@@ -107,7 +107,7 @@ Four additional packs to help you get more out of your bot — and AI tools in g
 
 ## About this workshop
 
-This workshop is designed and facilitated by [Michael Hauge](https://www.pertamapartners.com/about/team), an AI implementation specialist based in Kuala Lumpur who helps leadership teams adopt AI tools that they own and control. If you'd like to bring this workshop to your organisation, or discuss an AI advisory engagement, reach out via [LinkedIn](https://linkedin.com/in/michaelhauge).
+This workshop is designed and facilitated by [Ray Chou](https://raymondchou.me/), [Michael Hauge](https://www.pertamapartners.com/about/team), and [CT Ong](https://my.linkedin.com/in/ong-chong-te). If you'd like to bring AI workshops to your company, contact any one of the facilitators and they can provide you with more information.
 
 ---
 
