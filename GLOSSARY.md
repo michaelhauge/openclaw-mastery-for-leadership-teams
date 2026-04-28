@@ -1,5 +1,7 @@
 # Glossary — OpenClaw Workshop Terms
 
+**Reading time:** Reference — scan the Quick Reference table at the bottom, or search for the term you need.
+
 A plain-English reference for every technical term used in the workshop. No prior technical knowledge needed.
 
 ---
@@ -256,3 +258,12 @@ OpenClaw uses WhatsApp as its interface — the "channel" through which you talk
 | Tailscale | Private VPN used by captains to SSH into workshop servers |
 | ttyd | The software powering the browser terminal |
 | `gog` | The Google Workspace plugin (Gmail, Calendar, Drive) |
+
+---
+
+## Now that you know the terms
+
+- **Ready to build your first workflows?** → [FIRST-WEEK.md](FIRST-WEEK.md) — a day-by-day guide for your first 30 days
+- **Explore what your bot can do** → [WORKFLOWS.md](WORKFLOWS.md) — 12 ready-to-run automations
+- **Add capabilities** → [SKILLS-GUIDE.md](SKILLS-GUIDE.md) — plugins for Google, web search, Notion, and more
+- **Common questions** → [FAQ.md](FAQ.md) — privacy, cost, and usage

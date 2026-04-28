@@ -1,5 +1,7 @@
 # Workflows — What to Build First
 
+**Reading time:** ~8 minutes
+
 Twelve ready-to-run workflows for business leaders. Each one is a WhatsApp message you send to your bot to set it up. Most take under 60 seconds to activate.
 
 > **Prerequisites:** Workflows marked 📧 require Google Workspace connected — see [GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md). Everything else works straight out of the box.

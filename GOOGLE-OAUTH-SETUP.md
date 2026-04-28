@@ -1,5 +1,7 @@
 # Connecting Google Workspace (Gmail, Calendar, Drive)
 
+**Reading time:** ~5 minutes
+
 Here's where OpenClaw goes from "neat chat bot" to "actually useful for my work."
 
 Once your Google account is connected, you can do things like:

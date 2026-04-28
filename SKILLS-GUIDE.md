@@ -1,5 +1,7 @@
 # OpenClaw Plugins & Skills Guide
 
+**Reading time:** ~6 minutes
+
 Your bot works out of the box, but it becomes dramatically more useful once you connect it to the tools and data sources you already use. This guide covers the most useful plugins for business leaders — what they do, how to install them, and what to say to get value from them immediately.
 
 ---
