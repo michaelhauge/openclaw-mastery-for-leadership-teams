@@ -146,6 +146,20 @@ The cost of having it: future workshop operators read this once, link out to the
 
 - `docs/solutions/runtime-errors/openclaw-vps-bot-not-replying-2026-04-27.md` — yesterday's compound learning that informed tonight's installer rewrite (configure wizard vs onboard, jq deep-merge for openclaw.json, bonjour disable for datacenter networks)
 
+## DO overflow track (added 2026-04-28)
+
+The same dispenser codebase was extended the following morning to serve a DigitalOcean overflow track at `/do/` on the same domain using Caddy `handle_path`. Full pattern documented in:
+
+- `docs/solutions/architecture-patterns/do-overflow-track-pattern-2026-04-28.md`
+
+Additional skills extracted from that build:
+
+- `digitalocean-droplet-account-limit` — DO default 10-droplet cap; canary + fleet can silently hit it mid-batch
+- `do-cloud-init-yaml-non-ascii` — PyYAML strict mode in DO cloud-init v25.3 silently skips runcmd on non-ASCII
+- `hono-caddy-subpath-base-path` — BASE_PATH threading pattern for Hono apps behind Caddy `handle_path`
+
+---
+
 ## Atomic skills extracted from this session
 
 Each of these is a standalone skill in `~/.claude/skills/` for fast future lookup:
