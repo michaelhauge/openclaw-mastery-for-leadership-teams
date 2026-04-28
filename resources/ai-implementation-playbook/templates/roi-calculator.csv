@@ -1,0 +1,40 @@
+Task Name,Current Hours/Week,AI-Assisted Hours/Week,Review/Edit Hours/Week,Total AI Hours/Week,Hourly Rate ($),Weekly Savings ($),Annual Savings ($),AI Tool Cost/Year ($),Net Annual Savings ($),ROI (x)
+"INSTRUCTIONS: Fill in columns B-D and F for your tasks. Columns E and G-K calculate automatically. Copy formulas from example rows. Hourly Rate = fully loaded cost (salary + benefits + overhead). SEA typical: $15-40/hr. US typical: $50-80/hr.","","","","","","","","","",""
+"--- EXAMPLE ROWS (replace with your data) ---","","","","","","","","","",""
+Customer Support Emails (100/week),25,8.3,2,10.3,60,882,45864,240,45624,190x
+Sales Outreach Emails (50/week),12.5,2.5,1,3.5,60,540,28080,240,27840,116x
+Blog Post Drafting (2/month),3,0.5,1,1.5,60,90,4680,240,4440,19x
+Meeting Notes (10 meetings/week),2.5,0,0.5,0.5,60,120,6240,120,6120,51x
+Market Research (weekly),5,0.5,1,1.5,60,210,10920,240,10680,45x
+Document Review (20 contracts/month),3.75,0.4,0.5,0.9,60,171,8892,240,8652,36x
+Resume Screening (50/month),1.7,0.4,0.2,0.6,60,66,3432,240,3192,13x
+Product Descriptions (50/month),4.2,0.1,0.5,0.6,60,216,11232,240,10992,46x
+"--- YOUR TASKS (add below) ---","","","","","","","","","",""
+"[Your Task 1]","","","","","","","","","",""
+"[Your Task 2]","","","","","","","","","",""
+"[Your Task 3]","","","","","","","","","",""
+"[Your Task 4]","","","","","","","","","",""
+"[Your Task 5]","","","","","","","","","",""
+"","","","","","","","","","",""
+"TOTALS (sum your rows above)","","","","","","","","","",""
+"","","","","","","","","","",""
+"--- HOW TO USE ---","","","","","","","","","",""
+"1. Open this file in Google Sheets or Excel","","","","","","","","","",""
+"2. Replace example rows with your actual tasks","","","","","","","","","",""
+"3. Column B: How many hours/week does this task take today?","","","","","","","","","",""
+"4. Column C: How many hours/week with AI doing the first draft?","","","","","","","","","",""
+"5. Column D: How many hours/week reviewing/editing AI output?","","","","","","","","","",""
+"6. Column E: =C+D (total AI-assisted time)","","","","","","","","","",""
+"7. Column F: Your fully loaded hourly rate (salary + benefits + overhead / 2000 hours)","","","","","","","","","",""
+"8. Column G: =(B-E)*F (weekly dollar savings)","","","","","","","","","",""
+"9. Column H: =G*52 (annual savings)","","","","","","","","","",""
+"10. Column I: Annual cost of AI tools (ChatGPT $240/yr, Claude $240/yr, etc.)","","","","","","","","","",""
+"11. Column J: =H-I (net savings after tool costs)","","","","","","","","","",""
+"12. Column K: =J/I (ROI multiple)","","","","","","","","","",""
+"","","","","","","","","","",""
+"--- NOTES ---","","","","","","","","","",""
+"- Review/Edit time is critical: AI output always needs human review","","","","","","","","","",""
+"- First-month savings will be 30-50% lower (learning curve)","","","","","","","","","",""
+"- Not all tasks are good fits for AI. If AI-Assisted + Review > Current, don't automate it","","","","","","","","","",""
+"- Adjust hourly rate for your market. SEA rates: SG $40-60, MY $20-35, ID $15-25, TH $20-30","","","","","","","","","",""
+"- Tool costs assume 1 user. Multiply by number of team members using AI tools","","","","","","","","","",""

@@ -12,7 +12,7 @@ If you're reading this, you're a **table captain**. Your job: keep your ~10 part
 |---|---|
 | Captain name | _______________________ |
 | Your servers (10 of 40) | `workshop-____` through `workshop-____` |
-| Your captain dashboard URL | https://claim.workshop.pertamapartners.com/admin?role=captain&t=`<TOKEN>` |
+| Your captain dashboard URL | `<YOUR-WORKSHOP-DASHBOARD-URL>/admin?role=captain&t=<TOKEN>` |
 | Michael's WhatsApp | `+_______________` |
 
 ---

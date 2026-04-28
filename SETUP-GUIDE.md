@@ -119,7 +119,7 @@ Five steps. ~10 minutes. You'll need:
 - **Your phone**, with WhatsApp installed and signed in
 - **An LLM API key** (we'll show you how to get a free Moonshot key in step 2, or bring your own)
 - **A laptop or tablet** with a modern browser (Chrome, Safari, Firefox, Edge — anything from the last few years)
-- **The dispenser URL** your captain shared (looks like `https://claim.workshop.pertamapartners.com/?t=...`)
+- **The dispenser URL** your captain shared (looks like `https://<YOUR-WORKSHOP-CLAIM-URL>/?t=...`)
 
 ### Step 1 — Claim your server (~30 seconds)
 
@@ -213,7 +213,7 @@ Your server's filesystem layout:
 | `/opt/pertama/setup.sh` | The interactive installer you ran |
 | `/opt/pertama/help.sh` | Quick reference — runnable anytime to remind you of commands |
 | `/opt/pertama/.onboard-complete` | Sentinel file — its presence tells `setup.sh` you've already onboarded |
-| `/opt/pertama-skills/` | Pertama's curated skills (auto-syncs every 5 min from a private repo) |
+| `/opt/pertama-skills/` | Curated skills (auto-syncs every 5 min from a private repo) |
 | `/var/lib/pertama/` | Pertama Daemon state (logs, runtime data) |
 | Docker volume `pertama_openclaw-config` | Your OpenClaw config + auth tokens (stays on the server) |
 
@@ -523,7 +523,7 @@ If you liked the Hetzner setup and want to keep THIS exact server (with your con
 
 1. Sign up at [hetzner.com](https://hetzner.com) (you need your own account)
 2. Create a Hetzner Cloud project; generate an API token
-3. Pertama can transfer the server to your project (ask a captain — there's a one-line `hcloud server transfer` command)
+3. Ask a captain to transfer the server to your project — there's a one-line `hcloud server transfer` command
 4. You take ownership of billing from that point forward
 
 This is the lowest-friction path if you want to keep the bot running with zero re-setup.
@@ -582,7 +582,7 @@ This backup contains your openclaw.json, auth tokens, paired channel sessions, a
 ## Need help?
 
 - **During the workshop:** raise your hand, your captain has full access to your server and can fix anything in seconds
-- **After the workshop:** open an issue on this repo, or email michael@pertamapartners.com
+- **After the workshop:** open an issue on this repo
 - **For deep theory:** [OpenClaw SEA Guide](https://github.com/michaelhauge/myeo-ai-resources/tree/main/openclaw-sea-guide)
 - **OpenClaw itself:** [openclaw.ai](https://openclaw.ai), [GitHub](https://github.com/openclaw/openclaw), [Discord community](https://discord.gg/openclaw)
 

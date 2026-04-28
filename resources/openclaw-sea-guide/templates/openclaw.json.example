@@ -1,0 +1,125 @@
+{
+  "agent": {
+    "model": "kimi/kimi-k2",
+    "systemPrompt": "You are a helpful AI assistant for a business professional in Southeast Asia. Be concise, professional, and culturally aware."
+  },
+
+  "llm": {
+    "kimi": {
+      "apiKey": "${KIMI_API_KEY}",
+      "baseURL": "https://api.moonshot.ai/v1",
+      "maxTokensPerRequest": 100000,
+      "maxRequestsPerHour": 100
+    },
+    "deepseek": {
+      "apiKey": "${DEEPSEEK_API_KEY}",
+      "baseURL": "https://api.deepseek.com/v1"
+    },
+    "anthropic": {
+      "apiKey": "${ANTHROPIC_API_KEY}",
+      "auth": "oauth"
+    },
+    "qwen": {
+      "apiKey": "${QWEN_API_KEY}"
+    }
+  },
+
+  "gateway": {
+    "host": "0.0.0.0",
+    "port": 18789,
+    "corsOrigins": ["http://localhost:18789"]
+  },
+
+  "security": {
+    "dmPairing": {
+      "enabled": true,
+      "requireApproval": true
+    },
+    "sandbox": {
+      "enabled": false,
+      "allowedPaths": [
+        "${HOME}/Documents/Safe-Folder"
+      ],
+      "blockedCommands": ["rm", "sudo"]
+    }
+  },
+
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "autoReconnect": true,
+      "qrTimeout": 60000,
+      "limits": {
+        "maxMessagesPerHour": 50,
+        "maxTokensPerMessage": 50000
+      }
+    },
+    "telegram": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "allowedUsers": [],
+      "allowGroups": false,
+      "commands": {
+        "/morning": "Give me daily briefing with calendar, emails, and weather in Singapore",
+        "/weekly": "Summarize this week's accomplishments and next week's priorities",
+        "/translate_bm": "Translate the following to Bahasa Malaysia:"
+      }
+    },
+    "slack": {
+      "enabled": false,
+      "botToken": "${SLACK_BOT_TOKEN}",
+      "signingSecret": "${SLACK_SIGNING_SECRET}"
+    },
+    "discord": {
+      "enabled": false,
+      "botToken": "${DISCORD_BOT_TOKEN}"
+    }
+  },
+
+  "automation": {
+    "dailyBriefing": {
+      "enabled": false,
+      "time": "07:00",
+      "timezone": "Asia/Singapore",
+      "channels": ["whatsapp", "telegram"],
+      "message": "Good morning! Here's your daily briefing"
+    },
+    "emailDigest": {
+      "enabled": false,
+      "frequency": "daily",
+      "time": "09:00",
+      "timezone": "Asia/Singapore"
+    }
+  },
+
+  "integrations": {
+    "google": {
+      "enabled": false,
+      "calendar": true,
+      "gmail": true,
+      "drive": false
+    },
+    "notion": {
+      "enabled": false,
+      "token": "${NOTION_API_TOKEN}"
+    },
+    "github": {
+      "enabled": false,
+      "token": "${GITHUB_TOKEN}"
+    }
+  },
+
+  "memory": {
+    "storageType": "local",
+    "path": "~/.openclaw/memory",
+    "retention": "90d",
+    "format": "markdown"
+  },
+
+  "logging": {
+    "level": "info",
+    "file": "~/.openclaw/logs/openclaw.log",
+    "maxSize": "10M",
+    "maxFiles": 5
+  }
+}

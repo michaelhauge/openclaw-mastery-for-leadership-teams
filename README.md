@@ -1,6 +1,6 @@
 # OpenClaw Mastery for Leadership Teams
 
-Workshop materials and post-workshop reference for **Pertama Partners' OpenClaw Mastery** — a hands-on programme that gives every participant a personal AI assistant they own and control by the end of the day.
+Workshop materials and post-workshop reference for a hands-on programme that gives every participant a personal AI assistant they own and control by the end of the day.
 
 > **Live at the workshop?** Open the dispenser URL your captain shared, click **Claim my OpenClaw**, and follow the on-screen prompts. The first 15 minutes are guided — this repo is for everything that comes after.
 
@@ -65,14 +65,8 @@ The SEA guide covers many alternatives to the Hetzner cpx22 setup we use in the 
 
 ---
 
-## About Pertama Partners
-
-Pertama Partners is a private investment and advisory firm focused on Southeast Asia. We run hands-on AI workshops for leadership teams who want to move from "AI is something happening over there" to "AI is helping me with my actual work today." See **[pertamapartners.com](https://pertamapartners.com)**.
-
----
-
 ## Licence
 
-Workshop materials © 2026 Pertama Partners. Free to use within your organisation. For commercial redistribution please contact the team.
+Workshop materials are free to use within your organisation. MIT-licensed — see [LICENSE](LICENSE).
 
 OpenClaw itself is open-source software with its own licence — see [openclaw.ai](https://openclaw.ai).
