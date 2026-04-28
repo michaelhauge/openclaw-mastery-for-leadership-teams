@@ -87,3 +87,5 @@ Suggested opener: "James, I know you had questions about our burn rate last time
 
 - After a meeting, capture what happened:
   > *"I just finished my investor call. Action items: send updated model by Thursday, schedule follow-up in 2 weeks."*
+
+> See also: [Meeting Prep in WORKFLOWS.md](../../WORKFLOWS.md)

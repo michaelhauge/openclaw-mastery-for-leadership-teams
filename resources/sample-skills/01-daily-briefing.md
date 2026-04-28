@@ -88,3 +88,5 @@ Ask for a briefing any time:
 
 - If the briefing is too long, ask it to shorten:
   > *"Keep my daily briefing to 5 bullet points max"*
+
+> See also: [Daily Briefing in WORKFLOWS.md](../../WORKFLOWS.md)

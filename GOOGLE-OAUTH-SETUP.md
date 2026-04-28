@@ -19,6 +19,8 @@ Before you start:
 - ✅ You have a Google account (Gmail, Google Workspace, or a personal account) whose email and calendar you want to connect
 - ✅ You're on your phone or have a browser open on another device (you'll need this to approve the Google permission screen)
 
+> Worried about connecting your Google account? Read the [privacy section in FAQ.md](FAQ.md#privacy-and-security) first.
+
 ---
 
 ## Step 1 — Install the `gog` plugin

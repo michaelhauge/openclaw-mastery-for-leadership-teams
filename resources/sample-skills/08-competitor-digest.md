@@ -102,3 +102,5 @@ Nothing significant from [Competitor 2] or [Competitor 3] this week.
   > *"Research everything you can find about [competitor] in the last 30 days — funding, product changes, hires, press"*
 
 - This skill works without Google Workspace — useful as a first skill before you set up OAuth.
+
+> See also: [Competitor Digest in WORKFLOWS.md](../../WORKFLOWS.md)

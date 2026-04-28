@@ -1,38 +1,54 @@
 # OpenClaw Mastery for Leadership Teams
 
-Workshop materials and post-workshop reference for a hands-on programme that gives every participant a personal AI assistant they own and control by the end of the day.
+A hands-on workshop that gives every participant a personal AI assistant — running on their own server, talking to them on WhatsApp — by the end of the day.
+
+*Workshop hosted by [Michael Hauge](https://linkedin.com/in/michaelhauge) · 29 April 2026 · Kuala Lumpur*
 
 > **Live at the workshop?** Open the dispenser URL your captain shared, click **Claim my OpenClaw**, and follow the on-screen prompts. The first 15 minutes are guided — this repo is for everything that comes after.
 
 ---
 
-## What you'll have after the workshop
+## What you'll have by the end of the day
 
 By the end of the day you'll have:
 
-- ✅ Your own VPS in Singapore running OpenClaw, paired to your WhatsApp
-- ✅ An LLM provider connected (your choice — Moonshot, OpenAI, Anthropic, etc.)
-- ✅ A browser-based terminal you can use from any device, any wifi
-- ✅ A bot that can search the web, write code, draft emails, summarise URLs, and a hundred other things
-- ✅ The know-how to extend it — install plugins, connect Google Workspace, customise the persona
+- Your own VPS in Singapore running OpenClaw, paired to your WhatsApp
+- An LLM provider connected (your choice — Moonshot, OpenAI, Anthropic, etc.)
+- A browser-based terminal you can use from any device, any wifi
+- A bot that can search the web, write code, draft emails, summarise URLs, and a hundred other things
+- The know-how to extend it — install plugins, connect Google Workspace, customise the persona
 
 The server stays up for **7 days post-workshop** so you can keep experimenting. After that you can either spin up your own (this repo shows you how) or move to a managed host.
 
 ---
 
-## Repo contents
+## Start here — choose your path
 
-| File / Folder | Audience | What it is |
-|---|---|---|
-| **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
-| **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Connecting Gmail, Calendar, and Drive — no SSH needed, done entirely through WhatsApp messages |
-| **[WORKFLOWS.md](WORKFLOWS.md)** | Participants | 12 copy-paste workflows: daily briefing, meeting prep, proposal tracker, LinkedIn posts, and more |
-| **[GLOSSARY.md](GLOSSARY.md)** | Participants | Plain-English definitions for every technical term used in the workshop (VPS, cron job, plugin, OAuth, etc.) |
-| **[SKILLS-GUIDE.md](SKILLS-GUIDE.md)** | Participants | Plugin and skills review — what to install, how to install it, example prompts for each |
-| **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 quick-win templates, AI implementation playbook |
-| **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
-| `docs/operator/OPERATOR.md` | Workshop operator | Workshop-day runbook: pre-flight, bulk deploy, monitoring, recovery, tear-down |
-| `README.md` | Everyone | This file |
+Three types of people use this repo. Find yours:
+
+| I am... | Start here |
+|---|---|
+| **A workshop participant** setting up my bot today | [SETUP-GUIDE.md Part 3 — workshop-day flow](SETUP-GUIDE.md#part-3-the-workshop-day-flow) |
+| **Post-workshop** — bot is running, want to go deeper | [FIRST-WEEK.md — your first 7 days](FIRST-WEEK.md) |
+| **Curious about self-hosted AI** for my business | [WHY-SELF-HOSTED.md — why own your AI assistant?](WHY-SELF-HOSTED.md) |
+
+---
+
+## All materials
+
+| File / Folder | Audience | What it is | Time to read |
+|---|---|---|---|
+| **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | Full setup guide — workshop day + setting up your own from scratch | ~25 min |
+| **[FIRST-WEEK.md](FIRST-WEEK.md)** | Participants | Day 1–30 progression guide: from running to relying on it daily | ~7 min |
+| **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Connecting Gmail, Calendar, and Drive — no SSH, done via WhatsApp | ~5 min |
+| **[WORKFLOWS.md](WORKFLOWS.md)** | Participants | 12 copy-paste workflows: daily briefing, meeting prep, proposal tracker, and more | ~8 min |
+| **[SKILLS-GUIDE.md](SKILLS-GUIDE.md)** | Participants | Plugin and skills review — what to install, how, and example prompts | ~6 min |
+| **[WHY-SELF-HOSTED.md](WHY-SELF-HOSTED.md)** | Everyone | Why own your AI assistant vs. renting ChatGPT / Claude Pro — comparison and cost | ~6 min |
+| **[FAQ.md](FAQ.md)** | Everyone | Privacy, costs, team usage, and technical questions answered | ~5 min |
+| **[GLOSSARY.md](GLOSSARY.md)** | Participants | Plain-English definitions for every technical term in the workshop | Reference |
+| **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 templates, AI playbook | Browse |
+| **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Triage lanes, troubleshooting flowchart, recovery commands | ~10 min |
+| `docs/operator/OPERATOR.md` | Workshop operator | Workshop-day runbook: pre-flight, bulk deploy, monitoring, tear-down | — |
 
 ---
 
@@ -46,7 +62,15 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 - [Connecting Google Workspace (Gmail, Calendar, Drive)](GOOGLE-OAUTH-SETUP.md) — no SSH, done via WhatsApp
 - [12 ready-to-run workflows — daily briefing, meeting prep, proposal tracker, and more](WORKFLOWS.md)
 - [Installing plugins and customising your bot](SKILLS-GUIDE.md)
+- [Your first 7 days — building the habit](FIRST-WEEK.md)
 - [Taking it home — running your OWN OpenClaw](SETUP-GUIDE.md#part-8-taking-it-home)
+- [Frequently asked questions](FAQ.md)
+
+### Why self-hosted AI?
+- [Why own your AI assistant vs. ChatGPT / Claude Pro](WHY-SELF-HOSTED.md) — comparison table, cost breakdown, honest tradeoffs
+
+### Frequently asked questions
+- [FAQ — privacy, costs, team usage, technical questions](FAQ.md)
 
 ### Advanced / technical
 - [Google OAuth — own Google Cloud project + SSH tunnel](docs/advanced/GOOGLE-OAUTH-SETUP-ADVANCED.md) — for technical users who want full credential ownership
@@ -78,6 +102,12 @@ Four additional packs to help you get more out of your bot — and AI tools in g
 | **[AI GTM Playbook](resources/ai-gtm-playbook/)** | 25 copy-paste AI prompt workflows — SEO, cold email, proposals, competitor intel, and more |
 | **[Quick-Win Templates](resources/quick-win-templates/)** | 40 templates: one-pagers, comparison guides, 30-day checklists, spreadsheet calculators |
 | **[AI Implementation Playbook](resources/ai-implementation-playbook/)** | 10 AI use cases with ROI tracking + 50+ business prompts in `PROMPT-LIBRARY.md` |
+
+---
+
+## About this workshop
+
+This workshop is designed and facilitated by [Michael Hauge](https://linkedin.com/in/michaelhauge), an AI implementation specialist based in Kuala Lumpur who helps leadership teams adopt AI tools that they own and control. If you'd like to bring this workshop to your organisation, or discuss an AI advisory engagement, reach out via [LinkedIn](https://linkedin.com/in/michaelhauge).
 
 ---
 

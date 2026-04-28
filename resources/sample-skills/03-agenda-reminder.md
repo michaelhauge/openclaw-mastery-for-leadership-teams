@@ -80,3 +80,5 @@ Ask for your agenda any time:
 
 - To add a 6pm check-in as well:
   > *"Add a 6pm agenda reminder to my existing cron jobs"*
+
+> See also: [Agenda Reminder in WORKFLOWS.md](../../WORKFLOWS.md)

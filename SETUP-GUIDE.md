@@ -4,6 +4,8 @@ A complete walkthrough for the workshop AND for setting up your own OpenClaw fro
 
 **Reading time:** ~25 minutes for the full guide. The workshop-day section (Part 3) is ~5 minutes if that's all you need today.
 
+> New to terms like VPS, cron job, or OAuth? See [GLOSSARY.md](GLOSSARY.md) for plain-English definitions.
+
 > 💡 If you only have 5 minutes, skip to **[Part 3: The workshop-day flow](#part-3-the-workshop-day-flow)** and come back to the theory later. Everything else in this guide is for understanding what just happened and extending your bot afterward.
 
 ---
@@ -43,7 +45,9 @@ OpenClaw is a **free, open-source AI assistant** (150,000+ GitHub stars) that yo
 
 > *Your own AI agent, on your own server, talking to you on WhatsApp, with full access to YOUR Gmail / Calendar / Drive / Notion / whatever — and YOU decide what it can and cannot touch.*
 
-For a deeper "why this matters for SEA business leaders" treatment, read the SEA guide's [USE-CASES.md](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/USE-CASES.md) and [MENTAL-MODEL.md](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/MENTAL-MODEL.md).
+> For the full case for self-hosted AI — including a side-by-side comparison with ChatGPT Plus, Claude Pro, and Microsoft Copilot — see [WHY-SELF-HOSTED.md](WHY-SELF-HOSTED.md).
+
+For a deeper "why this matters for SEA business leaders" treatment, read the SEA guide's [USE-CASES.md](resources/openclaw-sea-guide/USE-CASES.md) and [MENTAL-MODEL.md](resources/openclaw-sea-guide/MENTAL-MODEL.md).
 
 ---
 
@@ -107,9 +111,9 @@ When you set up OpenClaw, you make four decisions:
 **Sandbox off** — for the workshop we let the bot execute shell commands so it can install plugins, read your files, etc. on demand. This is fine because the server is YOUR server with no shared data. If you redeploy at home with sensitive workloads, consider turning sandbox back on (per-tool allowlist).
 
 For deep theory and pricing comparisons across all options, see:
-- [SEA guide: LLM providers](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/02-llm-providers.md)
-- [SEA guide: managed hosting providers](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/09-managed-hosting-providers.md)
-- [SEA guide: pricing breakdown](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/PRICING.md)
+- [SEA guide: LLM providers](resources/openclaw-sea-guide/guides/02-llm-providers.md)
+- [SEA guide: managed hosting providers](resources/openclaw-sea-guide/guides/09-managed-hosting-providers.md)
+- [SEA guide: pricing breakdown](resources/openclaw-sea-guide/PRICING.md)
 
 ---
 
@@ -385,11 +389,11 @@ The workshop server stays running for **7 days post-workshop**, after which it's
 
 Pick a host from the SEA guide:
 
-- **[DigitalOcean 1-Click](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/05-digitalocean.md)** — easiest, $6/month
-- **[Contabo](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/06-contabo-vps.md)** — best value, ~$4/month
+- **[DigitalOcean 1-Click](resources/openclaw-sea-guide/guides/05-digitalocean.md)** — easiest, $6/month
+- **[Contabo](resources/openclaw-sea-guide/guides/06-contabo-vps.md)** — best value, ~$4/month
 - **[Hetzner](https://www.hetzner.com)** — what we used in the workshop, ~€10/month, best in EU/SG
-- **[Oracle Cloud Free](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/04-oracle-cloud-free.md)** — free forever, advanced setup
-- **[Local Mac](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/03-local-mac.md)** — $0, but only works when laptop is on
+- **[Oracle Cloud Free](resources/openclaw-sea-guide/guides/04-oracle-cloud-free.md)** — free forever, advanced setup
+- **[Local Mac](resources/openclaw-sea-guide/guides/03-local-mac.md)** — $0, but only works when laptop is on
 
 The SEA guide's setup steps mirror what `setup.sh` did for you — install Docker, run `npx openclaw`, walk through the configure wizard.
 
@@ -402,7 +406,7 @@ If you don't want to touch a VPS at all:
 
 Either lets you skip Parts 4–7 of this guide entirely. You bring an LLM key; they handle everything else.
 
-See the [SEA guide on managed hosting](https://github.com/michaelhauge/myeo-ai-resources/blob/main/openclaw-sea-guide/guides/09-managed-hosting-providers.md) for a comparison.
+See the [SEA guide on managed hosting](resources/openclaw-sea-guide/guides/09-managed-hosting-providers.md) for a comparison.
 
 ### Option C — Migrate this workshop server to your own Hetzner account (~15 minutes, advanced)
 
@@ -470,7 +474,7 @@ This backup contains your openclaw.json, auth tokens, paired channel sessions, a
 
 - **During the workshop:** raise your hand, your captain has full access to your server and can fix anything in seconds
 - **After the workshop:** open an issue on this repo
-- **For deep theory:** [OpenClaw SEA Guide](https://github.com/michaelhauge/myeo-ai-resources/tree/main/openclaw-sea-guide)
+- **For deep theory:** [OpenClaw SEA Guide](resources/openclaw-sea-guide/)
 - **OpenClaw itself:** [openclaw.ai](https://openclaw.ai), [GitHub](https://github.com/openclaw/openclaw), [Discord community](https://discord.gg/openclaw)
 
 ---

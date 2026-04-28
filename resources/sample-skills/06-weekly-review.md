@@ -89,3 +89,5 @@ The investor call on Tuesday is the most time-sensitive item — James asked for
 
 - Combine with the End-of-Day Wrap to close the loop:
   > *"At the end of every Friday, summarise the week so I can compare it to what I planned on Monday"*
+
+> See also: [Weekly Review in WORKFLOWS.md](../../WORKFLOWS.md)

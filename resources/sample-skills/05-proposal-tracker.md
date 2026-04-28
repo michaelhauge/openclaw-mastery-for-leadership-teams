@@ -94,3 +94,5 @@ Run a check any time:
 
 - Adjust the sensitivity:
   > *"Update my proposal tracker to flag emails with no reply after 3 days instead of 5"*
+
+> See also: [Proposal Tracker in WORKFLOWS.md](../../WORKFLOWS.md)

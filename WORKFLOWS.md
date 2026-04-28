@@ -24,6 +24,8 @@ Just paste the **Setup prompt** into WhatsApp and send it to your bot. For sched
 **Setup prompt:**
 > *"Set up a daily briefing cron job at 8am every weekday. Each morning, send me: (1) A summary of unread emails from the last 12 hours — flag anything urgent or from clients by name. (2) My calendar for today — list each meeting with time, attendees, and a one-line description. (3) Any emails I received but didn't reply to yesterday. Format it as a clean WhatsApp message I can read in 2 minutes."*
 
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/01-daily-briefing.md)
+
 **Example output:**
 ```
 ☀️ Good morning — Tuesday 29 April
@@ -49,6 +51,8 @@ Just paste the **Setup prompt** into WhatsApp and send it to your bot. For sched
 **Setup prompt:**
 > *"Set up a cron job at 5:30pm every weekday. Send me an end-of-day wrap: (1) Meetings I had today — list any action items I mentioned in emails or calendar notes. (2) Emails I received but haven't replied to. (3) First 3 things on my calendar tomorrow so I know what to expect. Keep it to 8 bullet points max."*
 
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/04-end-of-day-wrap.md)
+
 ---
 
 ### 3 — Weekly preview 📧
@@ -56,6 +60,8 @@ Just paste the **Setup prompt** into WhatsApp and send it to your bot. For sched
 
 **Setup prompt:**
 > *"Set up a cron job at 7pm every Sunday. Send me a weekly preview: (1) My full calendar for the coming week, grouped by day. (2) Any emails from last week with no reply that I should action this week. (3) Three suggested priorities for the week based on what's in my inbox and calendar. Format it as a short WhatsApp message."*
+
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/06-weekly-review.md)
 
 ---
 
@@ -66,6 +72,8 @@ Just paste the **Setup prompt** into WhatsApp and send it to your bot. For sched
 
 **Setup prompt:**
 > *"Set up a cron job that runs every 15 minutes. At each run, check if I have a calendar event starting in 15 minutes that has external attendees. If yes, send me a meeting prep brief: who's attending, a 2-sentence summary of the most recent email thread I've had with each person, and one suggested opening question. If there's no upcoming meeting, do nothing."*
+
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/02-meeting-prep.md)
 
 **Example output:**
 ```
@@ -86,6 +94,8 @@ Suggested opener: "James, I know you had questions about our burn — shall I st
 **Setup prompt:**
 > *"Set up three cron jobs: at 8am, 12pm, and 4pm every weekday. Each run: check my calendar for meetings in the next 3 hours. If there are any, send me a WhatsApp message listing each one with the time, attendees, and meeting title. If there are no meetings in the next 3 hours, send nothing."*
 
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/03-agenda-reminder.md)
+
 ---
 
 ### 6 — Post-meeting action capture 📧
@@ -103,6 +113,8 @@ Suggested opener: "James, I know you had questions about our burn — shall I st
 
 **Setup prompt:**
 > *"Set up a cron job at 9am every Tuesday and Friday. Search my sent emails from the last 30 days for messages containing the words 'proposal', 'quotation', or 'offer'. For each one with no reply in more than 5 days, draft a short, friendly follow-up email and send me the drafts via WhatsApp. I'll choose which ones to send."*
+
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/05-proposal-tracker.md)
 
 ---
 
@@ -132,6 +144,8 @@ Suggested opener: "James, I know you had questions about our burn — shall I st
 **Setup prompt:**
 > *"Set up a cron job at 4pm every Friday. Review my calendar and emails from this week. Pick the most interesting thing I did, learned, or discussed. Draft two short LinkedIn posts (under 200 words each) I could share: one more professional, one more conversational. Send them via WhatsApp for me to pick and edit."*
 
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/07-linkedin-posts.md)
+
 ---
 
 ### 11 — Client update generator 📧
@@ -149,6 +163,8 @@ Suggested opener: "James, I know you had questions about our burn — shall I st
 > *"Set up a cron job at 8:30am every Monday. Search the web for news in the last 7 days about [your industry, e.g. 'B2B SaaS Southeast Asia'] and [up to 3 competitor names]. For each relevant article, give me a one-line summary and why it matters to me. Maximum 5 items. If nothing significant, say so."*
 
 > *Replace the bracketed text with your actual industry and competitor names when you send this.*
+
+**Want this to run automatically as a persistent skill?** → [Install as a skill](resources/sample-skills/08-competitor-digest.md)
 
 ---
 

@@ -106,3 +106,5 @@ Reply A or B to keep one. Or say "edit post A to mention [detail]".
   > *"This week only, write LinkedIn posts about [topic — e.g., leadership, AI, sales]"*
 
 - Review and edit before posting — the bot captures the idea and draft; you refine the voice.
+
+> See also: [LinkedIn Posts in WORKFLOWS.md](../../WORKFLOWS.md)

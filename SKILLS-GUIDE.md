@@ -12,6 +12,8 @@ Your bot works out of the box, but it becomes dramatically more useful once you 
 
 Most people start with plugins, then add skills once the bot is running well.
 
+> New to terms like plugin, API key, or OAuth? → [GLOSSARY.md](GLOSSARY.md) has plain-English definitions for everything in this guide.
+
 ---
 
 ## How to install any plugin from ClawHub
@@ -172,6 +174,7 @@ Once the skill exists, `email: follow up with David about the contract` becomes 
 
 ## What's next
 
+- **Common questions about privacy and cost** → [FAQ.md](FAQ.md)
 - **Connect Google Workspace** → [GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md) — step-by-step with device-flow OAuth
 - **Try 25 AI prompt workflows** → [resources/ai-gtm-playbook/](resources/ai-gtm-playbook/) — copy-paste workflows for SEO, cold email, proposals, and more
 - **50+ business prompts** → [resources/ai-implementation-playbook/PROMPT-LIBRARY.md](resources/ai-implementation-playbook/PROMPT-LIBRARY.md)

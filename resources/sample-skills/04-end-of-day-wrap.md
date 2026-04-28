@@ -88,3 +88,5 @@ Get a wrap any time:
 
 - Use it as a team communication tool:
   > *"At the end of the day, also draft a 3-bullet status update I can share with my team on Slack"*
+
+> See also: [End-of-Day Wrap in WORKFLOWS.md](../../WORKFLOWS.md)
