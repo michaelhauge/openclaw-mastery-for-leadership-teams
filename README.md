@@ -26,6 +26,7 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 |---|---|---|
 | **[SETUP-GUIDE.md](SETUP-GUIDE.md)** | Participants | The full setup guide — theory + step-by-step for the workshop AND for setting up your own from scratch later |
 | **[GOOGLE-OAUTH-SETUP.md](GOOGLE-OAUTH-SETUP.md)** | Participants | Connecting Gmail, Calendar, and Drive — no SSH needed, done entirely through WhatsApp messages |
+| **[WORKFLOWS.md](WORKFLOWS.md)** | Participants | 12 copy-paste workflows: daily briefing, meeting prep, proposal tracker, LinkedIn posts, and more |
 | **[SKILLS-GUIDE.md](SKILLS-GUIDE.md)** | Participants | Plugin and skills review — what to install, how to install it, example prompts for each |
 | **[resources/](resources/)** | Participants | Four resource packs: OpenClaw SEA Guide, 25 GTM workflows, 40 quick-win templates, AI implementation playbook |
 | **[CAPTAIN.md](CAPTAIN.md)** | Table captains | Pre-brief: triage lanes, troubleshooting flowchart, recovery commands, escalation protocol |
@@ -42,6 +43,7 @@ The server stays up for **7 days post-workshop** so you can keep experimenting. 
 
 ### After the workshop
 - [Connecting Google Workspace (Gmail, Calendar, Drive)](GOOGLE-OAUTH-SETUP.md) — no SSH, done via WhatsApp
+- [12 ready-to-run workflows — daily briefing, meeting prep, proposal tracker, and more](WORKFLOWS.md)
 - [Installing plugins and customising your bot](SKILLS-GUIDE.md)
 - [Taking it home — running your OWN OpenClaw](SETUP-GUIDE.md#part-8-taking-it-home)
 
