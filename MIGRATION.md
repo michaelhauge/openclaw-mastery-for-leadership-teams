@@ -58,9 +58,25 @@ Save this IP address — you will use it to SSH in after the transfer.
 
 ## Step 4 — Request the Server Transfer
 
-Contact your workshop administrator and give them:
-- Your Hetzner account email address
-- Your server number (e.g. workshop-05)
+Send the following message to your workshop administrator:
+
+---
+
+> **Subject:** Workshop Server Transfer Request
+>
+> Hi Mike,
+>
+> I'd like to take ownership of my OpenClaw server from the workshop. Here are my details:
+>
+> - **My name:** [Your Name]
+> - **My workshop server number:** workshop-0X *(check your terminal prompt — it shows `pertama@workshop-0X`)*
+> - **My Hetzner account email:** [email you used to sign up at hetzner.com]
+>
+> I've already added my SSH key to the server following the MIGRATION.md guide.
+>
+> Thanks!
+
+---
 
 The administrator will initiate the transfer from the Hetzner Cloud Console. You will receive an **email from Hetzner** with a link to accept the transfer. Click it to complete the handover.
 
