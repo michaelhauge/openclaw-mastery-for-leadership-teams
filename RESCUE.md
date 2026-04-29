@@ -67,6 +67,30 @@ Share the output with your administrator if you cannot resolve it.
 
 ---
 
+## Issue: WebSocket Timeout / Bot Receives Message but Doesn't Reply
+
+**Symptoms in logs:**
+- `[whatsapp] [default] channel exited` with `statusCode: 408` and `"Request Time-out, Connection was lost"`
+- `[diagnostic] stuck session: state=processing` with age over 60 seconds and `queueDepth=1`
+
+**Cause:** The agent received a message but got stuck trying to process it. This causes the WhatsApp WebSocket connection to time out and drop. The most common reason is an **invalid AI model name** configured on the server.
+
+**Check the model:**
+
+Look for the `agent model:` line near the top of the logs (e.g. `agent model: openai/gpt-5.5`). If the model name is incorrect or doesn't exist, the agent will hang on every message.
+
+**To inspect the current config:**
+
+```bash
+cd /opt/pertama && docker compose exec openclaw node openclaw.mjs config get
+```
+
+Share the output with your administrator to identify and correct the model name.
+
+**Self-healing:** OpenClaw's health monitor detects stuck sessions and restarts the container automatically. After a restart, try texting the bot again — if it replies, the issue was temporary. If it gets stuck again on every message, the model configuration needs to be fixed.
+
+---
+
 ## How to Check Status
 
 ```bash
