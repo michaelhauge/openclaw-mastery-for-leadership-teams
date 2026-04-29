@@ -104,19 +104,41 @@ docker compose restart openclaw
 
 ## Fix: Invalid or Corrupted API Key (401 error in logs)
 
-If logs show `401 Incorrect API key provided`, replace the key with a fresh one from platform.openai.com:
+If logs show `401 Incorrect API key provided`, the `auth-profiles.json` file needs to be rewritten with a valid key.
+
+**Why this happens:** Long commands pasted into a terminal can get line-wrapped, silently corrupting the JSON (e.g. inserting a space into `"type"` → `"t ype"`, or garbling the API key). OpenClaw will log `ignored invalid auth profile entries during store load` when this happens.
+
+**The safe fix — use an environment variable to avoid paste corruption:**
+
+Step 1 — set your API key as a shell variable (paste just the key, no JSON around it):
 
 ```bash
-cd /opt/pertama && docker compose exec openclaw node -e "const fs = require('fs'); const profiles = JSON.parse(fs.readFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json')); profiles.profiles['openai:default'].key = 'PASTE_NEW_KEY_HERE'; fs.writeFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json', JSON.stringify(profiles, null, 2)); console.log('Done');"
+OAIKEY='YOUR_OPENAI_API_KEY_HERE'
 ```
 
-Replace `PASTE_NEW_KEY_HERE` with the new API key. Then restart:
+Step 2 — write the correctly-formatted auth-profiles.json using the variable (key travels as env var, not embedded in a long JSON string):
+
+```bash
+docker run --rm -e K="$OAIKEY" -v pertama_openclaw-config:/data alpine sh -c 'printf "{\"version\":1,\"profiles\":{\"openai:default\":{\"type\":\"token\",\"provider\":\"openai\",\"token\":\"%s\"}},\"lastGood\":{\"openai\":\"openai:default\"}}" "$K" > /data/agents/main/agent/auth-profiles.json && chown 1000:1000 /data/agents/main/agent/auth-profiles.json && cat /data/agents/main/agent/auth-profiles.json'
+```
+
+The `cat` at the end prints what was written — verify the key looks correct (check the last 4 characters match your key) before restarting.
+
+Step 3 — restart OpenClaw:
 
 ```bash
 docker compose restart openclaw
 ```
 
 Then text the bot to confirm it replies.
+
+---
+
+## Fix: "Missing API key for provider 'openai'" error
+
+**Cause:** The auth-profiles.json exists but uses incorrect field names. OpenClaw expects `"type": "token"` and `"token": "..."` — not `"type": "api_key"` and `"key": "..."`.
+
+**Fix:** Use the env-var write method above (Step 1 and Step 2) to rewrite the file in the correct format, then restart.
 
 ---
 
