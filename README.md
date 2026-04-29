@@ -4,7 +4,7 @@ A hands-on workshop that gives every participant a personal AI assistant — run
 
 *Workshop hosted by Ray Chou, [Michael Hauge](https://github.com/michaelhauge), and CT Ong · 29 April 2026 · Kuala Lumpur*
 
-> **Live at the workshop?** Open the dispenser URL your captain shared, click **Claim my OpenClaw**, and follow the on-screen prompts. The first 15 minutes are guided — this repo is for everything that comes after.
+> **Live at the workshop?** Open **[https://claimopenclaw.pertamapartners.com](https://claimopenclaw.pertamapartners.com)**, click **Claim my OpenClaw**, and follow the on-screen prompts. The first 15 minutes are guided — this repo is for everything that comes after.
 
 ---
 
