@@ -8,9 +8,19 @@ This can happen after a server restart, a period of inactivity, or if WhatsApp w
 
 ---
 
+## Fix: Step 0 — Open OpenClaw for Pairing (Admin, in Terminal)
+
+Before the user texts, the admin must run this command to put OpenClaw into pairing mode:
+
+```bash
+cd /opt/pertama && docker compose exec openclaw node openclaw.mjs pairing approve whatsapp
+```
+
+---
+
 ## Fix: Step 1 — Trigger the Pairing Request (User's Phone)
 
-The user texts anything to the bot on WhatsApp. If access is not configured, the bot will reply automatically with a message like this:
+The user texts anything to the bot on WhatsApp. The bot will reply automatically with a message like this:
 
 > OpenClaw: access not configured.
 >
