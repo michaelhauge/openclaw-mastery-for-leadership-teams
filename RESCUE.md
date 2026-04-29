@@ -82,12 +82,35 @@ Look for the `agent model:` line near the top of the logs (e.g. `agent model: op
 **To inspect the current config:**
 
 ```bash
-cd /opt/pertama && docker compose exec openclaw node openclaw.mjs config get
+cd /opt/pertama && docker compose exec openclaw cat /home/node/.openclaw/openclaw.json
 ```
 
-Share the output with your administrator to identify and correct the model name.
-
 **Self-healing:** OpenClaw's health monitor detects stuck sessions and restarts the container automatically. After a restart, try texting the bot again — if it replies, the issue was temporary. If it gets stuck again on every message, the model configuration needs to be fixed.
+
+---
+
+## Fix: Invalid Model Name (e.g. openai/gpt-5.5 doesn't exist)
+
+If the config shows an invalid model (e.g. `openai/gpt-5.5`), update it to `openai/gpt-4o`:
+
+```bash
+cd /opt/pertama && docker compose exec openclaw node -e "
+const fs = require('fs');
+const config = JSON.parse(fs.readFileSync('/home/node/.openclaw/openclaw.json'));
+config.agents.defaults.models = {'openai/gpt-4o': {alias: 'GPT'}};
+config.agents.defaults.model.primary = 'openai/gpt-4o';
+fs.writeFileSync('/home/node/.openclaw/openclaw.json', JSON.stringify(config, null, 2));
+console.log('Done');
+"
+```
+
+Then restart OpenClaw:
+
+```bash
+docker compose restart openclaw
+```
+
+Then have the user text the bot again to confirm it's responding.
 
 ---
 
