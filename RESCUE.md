@@ -73,11 +73,7 @@ Share the output with your administrator if you cannot resolve it.
 - `[whatsapp] [default] channel exited` with `statusCode: 408` and `"Request Time-out, Connection was lost"`
 - `[diagnostic] stuck session: state=processing` with age over 60 seconds and `queueDepth=1`
 
-**Cause:** The agent received a message but got stuck trying to process it. This causes the WhatsApp WebSocket connection to time out and drop. The most common reason is an **invalid AI model name** configured on the server.
-
-**Check the model:**
-
-Look for the `agent model:` line near the top of the logs (e.g. `agent model: openai/gpt-5.5`). If the model name is incorrect or doesn't exist, the agent will hang on every message.
+**Cause:** The agent received a message but got stuck trying to process it. This is usually caused by an invalid AI model name or a corrupted API key.
 
 **To inspect the current config:**
 
@@ -85,32 +81,41 @@ Look for the `agent model:` line near the top of the logs (e.g. `agent model: op
 cd /opt/pertama && docker compose exec openclaw cat /home/node/.openclaw/openclaw.json
 ```
 
-**Self-healing:** OpenClaw's health monitor detects stuck sessions and restarts the container automatically. After a restart, try texting the bot again — if it replies, the issue was temporary. If it gets stuck again on every message, the model configuration needs to be fixed.
+**Self-healing:** OpenClaw's health monitor detects stuck sessions and restarts the container automatically. After a restart, try texting the bot again — if it replies, the issue was temporary. If it gets stuck again on every message, the model or API key needs to be fixed.
 
 ---
 
 ## Fix: Invalid Model Name (e.g. openai/gpt-5.5 doesn't exist)
 
-If the config shows an invalid model (e.g. `openai/gpt-5.5`), update it to `openai/gpt-4o`:
+If the config shows an invalid model, update it to `openai/gpt-4o`:
 
 ```bash
-cd /opt/pertama && docker compose exec openclaw node -e "
-const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('/home/node/.openclaw/openclaw.json'));
-config.agents.defaults.models = {'openai/gpt-4o': {alias: 'GPT'}};
-config.agents.defaults.model.primary = 'openai/gpt-4o';
-fs.writeFileSync('/home/node/.openclaw/openclaw.json', JSON.stringify(config, null, 2));
-console.log('Done');
-"
+cd /opt/pertama && docker compose exec openclaw node -e "const fs = require('fs'); const config = JSON.parse(fs.readFileSync('/home/node/.openclaw/openclaw.json')); config.agents.defaults.models = {'openai/gpt-4o': {alias: 'GPT'}}; config.agents.defaults.model.primary = 'openai/gpt-4o'; fs.writeFileSync('/home/node/.openclaw/openclaw.json', JSON.stringify(config, null, 2)); console.log('Done');"
 ```
 
-Then restart OpenClaw:
+Then restart:
 
 ```bash
 docker compose restart openclaw
 ```
 
-Then have the user text the bot again to confirm it's responding.
+---
+
+## Fix: Duplicated API Key (bot hangs on every message)
+
+If the OpenAI API key was written twice during setup, it will be invalid. Fix it by running:
+
+```bash
+cd /opt/pertama && docker compose exec openclaw node -e "const fs = require('fs'); const profiles = JSON.parse(fs.readFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json')); const key = profiles.profiles['openai:default'].key; profiles.profiles['openai:default'].key = key.slice(0, key.length / 2); fs.writeFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json', JSON.stringify(profiles, null, 2)); console.log('Fixed. Key length now:', profiles.profiles['openai:default'].key.length);"
+```
+
+Should print: `Fixed. Key length now: 164` (or similar). Then restart:
+
+```bash
+docker compose restart openclaw
+```
+
+> ⚠️ If you had to read the API key to diagnose this, rotate it immediately at platform.openai.com → API Keys.
 
 ---
 
