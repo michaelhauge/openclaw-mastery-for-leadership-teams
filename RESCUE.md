@@ -38,6 +38,25 @@ Once approved, the user will be able to use the bot and OpenClaw will return to 
 
 ---
 
+## Issue: Paired but Bot Not Replying
+
+If the user is paired but OpenClaw is not responding to messages, run this to check status and logs:
+
+```bash
+cd /opt/pertama && docker compose ps && docker compose logs openclaw --tail 50
+```
+
+**What to look for in the logs:**
+
+- `unhealthy` in `docker compose ps` — pairing approved but health check hasn't passed yet, wait 30 seconds and retry
+- `auth` or `unauthorized` errors — missing Anthropic API key, contact your administrator
+- `sandbox` or `Docker not found` errors — sandbox misconfiguration, contact your administrator
+- `agent model` line — confirms the agent is running correctly
+
+Share the output with your administrator if you cannot resolve it.
+
+---
+
 ## How to Check Status
 
 ```bash
