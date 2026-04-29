@@ -59,7 +59,7 @@ cd /opt/pertama && docker compose ps && docker compose logs openclaw --tail 50
 **What to look for in the logs:**
 
 - `unhealthy` in `docker compose ps` — pairing approved but health check hasn't passed yet, wait 30 seconds and retry
-- `auth` or `unauthorized` errors — missing Anthropic API key, contact your administrator
+- `auth` or `unauthorized` errors — missing or invalid API key, see fix below
 - `sandbox` or `Docker not found` errors — sandbox misconfiguration, contact your administrator
 - `agent model` line — confirms the agent is running correctly
 
@@ -72,8 +72,9 @@ Share the output with your administrator if you cannot resolve it.
 **Symptoms in logs:**
 - `[whatsapp] [default] channel exited` with `statusCode: 408` and `"Request Time-out, Connection was lost"`
 - `[diagnostic] stuck session: state=processing` with age over 60 seconds and `queueDepth=1`
+- `401 Incorrect API key provided`
 
-**Cause:** The agent received a message but got stuck trying to process it. This is usually caused by an invalid AI model name or a corrupted API key.
+**Cause:** The agent received a message but got stuck trying to process it — usually due to an invalid or corrupted API key.
 
 **To inspect the current config:**
 
@@ -81,7 +82,7 @@ Share the output with your administrator if you cannot resolve it.
 cd /opt/pertama && docker compose exec openclaw cat /home/node/.openclaw/openclaw.json
 ```
 
-**Self-healing:** OpenClaw's health monitor detects stuck sessions and restarts the container automatically. After a restart, try texting the bot again — if it replies, the issue was temporary. If it gets stuck again on every message, the model or API key needs to be fixed.
+**Self-healing:** OpenClaw's health monitor detects stuck sessions and restarts the container automatically. After a restart, try texting the bot again — if it replies, the issue was temporary. If it gets stuck again on every message, the API key needs to be fixed.
 
 ---
 
@@ -101,21 +102,21 @@ docker compose restart openclaw
 
 ---
 
-## Fix: Duplicated API Key (bot hangs on every message)
+## Fix: Invalid or Corrupted API Key (401 error in logs)
 
-If the OpenAI API key was written twice during setup, it will be invalid. Fix it by running:
+If logs show `401 Incorrect API key provided`, replace the key with a fresh one from platform.openai.com:
 
 ```bash
-cd /opt/pertama && docker compose exec openclaw node -e "const fs = require('fs'); const profiles = JSON.parse(fs.readFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json')); const key = profiles.profiles['openai:default'].key; profiles.profiles['openai:default'].key = key.slice(0, key.length / 2); fs.writeFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json', JSON.stringify(profiles, null, 2)); console.log('Fixed. Key length now:', profiles.profiles['openai:default'].key.length);"
+cd /opt/pertama && docker compose exec openclaw node -e "const fs = require('fs'); const profiles = JSON.parse(fs.readFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json')); profiles.profiles['openai:default'].key = 'PASTE_NEW_KEY_HERE'; fs.writeFileSync('/home/node/.openclaw/agents/main/agent/auth-profiles.json', JSON.stringify(profiles, null, 2)); console.log('Done');"
 ```
 
-Should print: `Fixed. Key length now: 164` (or similar). Then restart:
+Replace `PASTE_NEW_KEY_HERE` with the new API key. Then restart:
 
 ```bash
 docker compose restart openclaw
 ```
 
-> ⚠️ If you had to read the API key to diagnose this, rotate it immediately at platform.openai.com → API Keys.
+Then text the bot to confirm it replies.
 
 ---
 
