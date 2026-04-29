@@ -1,64 +1,162 @@
 # Taking Your OpenClaw Server Home
 
-After the workshop, your OpenClaw server can be transferred into your own Hetzner account so you own and control it fully. This guide walks you through that process and how to log in going forward.
+After the workshop, your OpenClaw server can be transferred into your own Hetzner account so you own and control it permanently. This guide covers how to access your server terminal, how to prepare for the transfer, and how to log in on your own after handover.
 
 ---
 
-## Step 1 — Create a Hetzner Account
+## Part 1 — How to Access Your Server Terminal
 
-If you don't already have one, sign up at [hetzner.com](https://www.hetzner.com/). The free tier is enough to receive a transferred server.
+Your server has a Linux command line interface (terminal). This is where you run all commands to manage OpenClaw.
 
----
+### Option A: Web Terminal (During the Workshop)
 
-## Step 2 — Add Your SSH Key to the Server (Before Transfer)
+During the workshop, your terminal is available directly in your browser — no installation needed.
 
-Before the server is transferred, you need to add your own SSH key so you can log in after the handover. Do this while you still have access to the workshop terminal.
+**Open your terminal:**
 
-**On your own computer (Mac/Linux), generate an SSH key if you don't have one:**
+Go to: `https://claimopenclaw.pertamapartners.com/terminal/p[YOUR NUMBER]`
 
-```bash
-ssh-keygen -t ed25519 -C "your@email.com"
+Replace `[YOUR NUMBER]` with your workshop server number (e.g. `p01`, `p02`, `p05`).
+
+You will see a black screen with a prompt like:
+
+```
+pertama@workshop-05:~$
 ```
 
-Press Enter to accept defaults. Then copy your public key:
+You are now inside your server. Type commands here and press Enter to run them.
 
+**To navigate to the OpenClaw folder** (required before most commands):
+
+```bash
+cd /opt/pertama
+```
+
+Your prompt will change to:
+
+```
+pertama@workshop-05:/opt/pertama$
+```
+
+---
+
+### Option B: SSH from Your Own Computer (Mac or Windows)
+
+SSH lets you connect to your server directly from the Terminal or Command Prompt on your own computer. This is how you will log in after the server is transferred to your account.
+
+#### Mac — Using Terminal
+
+1. Open **Terminal** (search for it in Spotlight with `Cmd + Space`, type "Terminal")
+
+2. Connect to your server:
+
+```bash
+ssh root@YOUR_SERVER_IP
+```
+
+Replace `YOUR_SERVER_IP` with your server's IP address (see Step 3 below to find it).
+
+3. Type `yes` if asked to confirm the connection, then press Enter.
+
+4. You should see a prompt like `root@workshop-05:~#` — you are now inside your server.
+
+#### Windows — Using PowerShell or Command Prompt
+
+Windows 10 and 11 include SSH built in.
+
+1. Press `Windows + R`, type `powershell`, press Enter
+
+2. Connect to your server:
+
+```
+ssh root@YOUR_SERVER_IP
+```
+
+3. Type `yes` if asked to confirm, then press Enter.
+
+4. You should see a prompt like `root@workshop-05:~#` — you are now inside your server.
+
+> If SSH is not found, install it via **Settings → Apps → Optional Features → OpenSSH Client**.
+
+---
+
+## Part 2 — Prepare for the Transfer (Do This During the Workshop)
+
+Before the server is transferred to your Hetzner account, you need to do two things while you still have browser terminal access.
+
+---
+
+### Step 1 — Find Your Server Number and IP
+
+In your web terminal, run:
+
+```bash
+hostname && curl -s ifconfig.me
+```
+
+You will see two lines — your server name (e.g. `workshop-05`) and your server's IP address (e.g. `5.223.87.187`).
+
+**Save both of these.** You will need them later.
+
+---
+
+### Step 2 — Add Your SSH Public Key to the Server
+
+This lets you log in via SSH after the transfer. Skip this now and you will be locked out.
+
+**First, get your SSH public key from your own computer.**
+
+#### Mac:
+
+1. Open Terminal on your Mac
+2. Check if you already have a key:
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
+3. If you see a line starting with `ssh-ed25519`, that's your key — copy the whole line.
+4. If you get "No such file", generate one first:
+```bash
+ssh-keygen -t ed25519 -C "your@email.com"
+```
+Press Enter three times to accept defaults. Then run `cat ~/.ssh/id_ed25519.pub` again to see it.
 
-Copy the output (starts with `ssh-ed25519 ...`).
+#### Windows:
 
-**In your workshop terminal**, paste and run this command (replace the key with yours):
+1. Open PowerShell
+2. Check if you already have a key:
+```
+type $env:USERPROFILE\.ssh\id_ed25519.pub
+```
+3. If you see a line starting with `ssh-ed25519`, copy the whole line.
+4. If you get an error, generate one:
+```
+ssh-keygen -t ed25519 -C "your@email.com"
+```
+Press Enter three times to accept defaults. Then run the `type` command again.
+
+---
+
+**Now add your key to the server.**
+
+In your **web terminal**, run this command — replace everything inside the quotes with YOUR key:
 
 ```bash
-echo "ssh-ed25519 AAAA... your@email.com" >> ~/.ssh/authorized_keys
+echo "ssh-ed25519 AAAA...your full key here... your@email.com" >> /root/.ssh/authorized_keys
 ```
 
 Verify it was added:
 
 ```bash
-cat ~/.ssh/authorized_keys
+cat /root/.ssh/authorized_keys
 ```
 
 Your key should appear in the list.
 
 ---
 
-## Step 3 — Note Your Server IP
+### Step 3 — Request the Server Transfer
 
-In your workshop terminal, run:
-
-```bash
-curl -s ifconfig.me
-```
-
-Save this IP address — you will use it to SSH in after the transfer.
-
----
-
-## Step 4 — Request the Server Transfer
-
-Send the following message to your workshop administrator:
+Send this message to your workshop administrator:
 
 ---
 
@@ -66,90 +164,78 @@ Send the following message to your workshop administrator:
 >
 > Hi Mike,
 >
-> I'd like to take ownership of my OpenClaw server from the workshop. Here are my details:
+> I'd like to take ownership of my OpenClaw server. Here are my details:
 >
 > - **My name:** [Your Name]
-> - **My workshop server number:** workshop-0X *(check your terminal prompt — it shows `pertama@workshop-0X`)*
-> - **My Hetzner account email:** [email you used to sign up at hetzner.com]
+> - **My workshop server:** workshop-0X *(your prompt shows `pertama@workshop-0X`)*
+> - **My Hetzner account email:** [the email you signed up with at hetzner.com]
 >
-> I've already added my SSH key to the server following the MIGRATION.md guide.
+> I have added my SSH key and noted my server IP.
 >
 > Thanks!
 
 ---
 
-The administrator will initiate the transfer from the Hetzner Cloud Console. You will receive an **email from Hetzner** with a link to accept the transfer. Click it to complete the handover.
+The administrator will initiate the transfer from the Hetzner Cloud Console. You will receive an **email from Hetzner** with a link to accept — click it to complete the handover.
 
-> The server stays running during the transfer — your bot will not go offline.
+> Your server and bot stay running during the transfer.
 
 ---
 
-## Step 5 — Log In After Transfer
+## Part 3 — Log In After the Transfer
 
-Once the server is in your Hetzner account, SSH in directly from your computer:
+Once the server is in your Hetzner account, you own it completely. Log in via SSH:
 
+**Mac:**
 ```bash
 ssh root@YOUR_SERVER_IP
 ```
 
-Replace `YOUR_SERVER_IP` with the IP you noted in Step 3.
+**Windows (PowerShell):**
+```
+ssh root@YOUR_SERVER_IP
+```
 
-You should see a prompt like:
-
+You should see:
 ```
 root@workshop-05:~#
 ```
 
----
-
-## Everyday Server Management
-
-Once logged in, navigate to the OpenClaw directory:
-
+Then navigate to OpenClaw:
 ```bash
 cd /opt/pertama
 ```
 
-**Check if the bot is running:**
+---
 
-```bash
-docker compose ps
-```
+## Part 4 — Everyday Server Management
 
-OpenClaw should show `Up (healthy)`.
+From inside `/opt/pertama`:
 
-**View recent logs:**
+| What you want to do | Command |
+|---|---|
+| Check if bot is running | `docker compose ps` |
+| View recent logs | `docker compose logs openclaw --tail 30` |
+| Restart the bot | `docker compose restart openclaw` |
+| Stop everything | `docker compose down` |
+| Start everything | `docker compose up -d` |
 
-```bash
-docker compose logs openclaw --tail 30
-```
+OpenClaw should always show `Up (healthy)` in `docker compose ps`.
 
-**Restart the bot:**
+---
 
-```bash
-docker compose restart openclaw
-```
+## Part 5 — Create a Hetzner Account (If You Haven't Yet)
 
-**Stop everything:**
-
-```bash
-docker compose down
-```
-
-**Start everything:**
-
-```bash
-docker compose up -d
-```
+Sign up at [hetzner.com](https://www.hetzner.com/) before requesting the transfer. The free account is enough to receive and own a server.
 
 ---
 
 ## If the Bot Stops Responding After Transfer
 
-The most common cause is the WhatsApp pairing session expiring. Follow the steps in [RESCUE.md](RESCUE.md) to re-pair.
+The most common cause is the WhatsApp pairing session expiring. Open [RESCUE.md](RESCUE.md) and follow the pairing steps from your terminal.
 
 ---
 
-## Hetzner Console (Emergency Access)
+## Emergency: Lost SSH Access
 
-If you ever lose SSH access, log into [console.hetzner.com](https://console.hetzner.com), find your server, and click **Console** to get browser-based terminal access. From there you can reset your SSH key or troubleshoot firewall issues.
+If you can no longer SSH in, log into [console.hetzner.com](https://console.hetzner.com), find your server, and click **Console** to get browser-based terminal access. From there you can add a new SSH key or troubleshoot firewall issues.
