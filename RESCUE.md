@@ -8,17 +8,33 @@ This can happen after a server restart, a period of inactivity, or if WhatsApp w
 
 ---
 
-## Fix: Re-pair WhatsApp
+## Fix: Step 1 — Trigger the Pairing Request (User's Phone)
 
-Paste this command directly into your server terminal:
+The user texts anything to the bot on WhatsApp. If access is not configured, the bot will reply automatically with a message like this:
+
+> OpenClaw: access not configured.
+>
+> Your WhatsApp phone number: +60XXXXXXXXX
+> Pairing code: EN5G83SK
+>
+> Ask the bot owner to approve with:
+> `openclaw pairing approve whatsapp EN5G83SK`
+
+The user sends you (the admin) the **pairing code** from that message.
+
+---
+
+## Fix: Step 2 — Approve the Pairing (Admin, in Terminal)
+
+> ⚠️ This command is run in the **terminal on the server** — NOT on WhatsApp.
 
 ```bash
-cd /opt/pertama && docker compose exec openclaw node openclaw.mjs pairing approve whatsapp
+cd /opt/pertama && docker compose exec openclaw node openclaw.mjs pairing approve whatsapp XXXXXXXX
 ```
 
-Then follow the on-screen prompt to scan the QR code or approve the pairing link on your phone.
+Replace `XXXXXXXX` with the pairing code the user sent you (e.g. `EN5G83SK`).
 
-Once paired, OpenClaw will return to **healthy** status automatically.
+Once approved, the user will be able to use the bot and OpenClaw will return to **healthy** status.
 
 ---
 
